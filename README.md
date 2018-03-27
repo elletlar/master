@@ -1,2 +1,2 @@
 # master
-Master Repository for Code Samples &amp; Learning Exercises
+Master Repository for Code Samples &amp; Learning Exercises.
