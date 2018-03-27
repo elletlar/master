@@ -1,0 +1,1035 @@
+<!doctype html>
+<html class="no-js" lang="en-gb">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>My HTML sandbox</title>
+        <meta name="description" content="My HTML practise page">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="HTML, CSS, XML, JavaScript">
+        <meta http-equiv="refresh" content="60;URL=http://localhost:63342/hello-html/index.html" />
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+
+
+        <!-- Additional "internal" styles for demo purposes -->
+        <style>
+            snoogie {
+                display: block;
+                background-color: #dddddd;
+                padding: 50px;
+                font-size: 30px;
+            }
+            #div1 {
+                width: 350px;
+                height: 70px;
+                padding: 10px;
+                border: 1px solid #aaaaaa;
+            }
+            h5   {color: powderblue;}
+            * {
+                box-sizing: border-box;
+            }
+            .left {
+                background-color:#2196F3;
+                padding:20px;
+                float:left;
+                width:20%;/*The width is 20%, by default*/
+            }
+            .main {
+                background-color:#f1f1f1;
+                padding:20px;
+                float:left;
+                width:60%;/*The width is 60%, by default*/
+            }
+            .right {
+                background-color:#4CAF50;
+                padding:20px;
+                float:left;
+                width:20%;/*The width is 20%, by default*/
+            }
+
+            /*Use a media query to add a break point at 800px:*/
+            @media (max-width:800px) {
+                .left, .main, .right {
+                    width:100%;/*The width is 100%, when the viewport is 800px or smaller*/
+                }
+            }
+
+            p.dotted {border-style: dotted;}
+            p.dashed {border-style: dashed;}
+            p.solid {border-style: solid;}
+            p.double {border-style: double;}
+            p.groove {border-style: groove;}
+            p.ridge {border-style: ridge;}
+            p.inset {border-style: inset;}
+            p.outset {border-style: outset;}
+            p.none {border-style: none;}
+            p.hidden {border-style: hidden;}
+            p.mix {border-style: dotted dashed solid double;}
+        </style>
+    </head>
+    <body style="background-color:lavenderblush">
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+        <!--
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        -->
+
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+        <!-- Add your site or application content here -->
+        <p>Hello world! This is my HTML5 sandbox.</p>
+
+        <pre>The &lt;!DOCTYPE html&gt; tag is used to declare HTML 5 document</pre>
+
+        <table border="1" cellpadding="15px">
+            <caption>HTML History</caption>
+            <tr><th>Version</th><th>Year</th></tr>
+            <tr><td>HTML</td><td>1991</td></tr>
+            <tr><td>HTML 2.0</td><td>1995</td></tr>
+            <tr><td>HTML 3.2</td><td>1997</td></tr>
+            <tr><td>HTML 4.01</td><td>1999</td></tr>
+            <tr><td>XHTML</td><td>2000</td></tr>
+            <tr><td>HTML 5</td><td>2014</td></tr>
+        </table>
+
+        <h1>Header text</h1>
+        <p>Paragraph text</p>
+        <pre>Pre</pre>
+        <div>Div text</div>
+        <code>Code text</code>
+
+        <h1>Header text 1</h1>
+        <h2>Header text 2</h2>
+        <h3>Header text 3</h3>
+        <h4>Header text 4</h4>
+        <h5>Header text 5</h5>
+        <h6>Header text 6</h6>
+        <h7>Header text 7: There is no '&lt;H7&gt;' so it appears as normal text</h7>
+        <pre>Headings are important because search engines use them to scan the content of your web page.</pre>
+        <h1 style="font-size:50px;">Giant heading created by setting the font-size style</h1>
+
+
+        <a href="http://netscape.com">Click here to visit Netscape.com</a>
+        <br>
+        <a href="http://netscape.com"><img alt="netscape logo" src="http://icons.iconseeker.com/png/64/3d-cartoon-icons-pack-iii/netscape-navigator.png"/></a>
+        <p>Image shrunk by setting width and height attributes</p>
+        <a href="http://netscape.com"><img width="30" height="30" alt="netscape logo" src="http://icons.iconseeker.com/png/64/3d-cartoon-icons-pack-iii/netscape-navigator.png"/></a>
+
+        <p style="color:dodgerblue">My colour style has been set to dodger blue. Go Dodgers!</p>
+
+        <hr>
+        Horizontal rule separator
+        <hr>
+
+        <p>Setting individual styles: &lt;tagname style="property:value;"&gt;</p>
+        <code>&lt;body style="background-color:lavenderblush"&gt;</code>
+
+        <h1 style="color:rebeccapurple">Color set to rebeccapurple</h1>
+        <p style="color:coral">Color set to coral</p>
+
+        <h1 style="font-family:verdana">font-family courier</h1>
+        <p style="font-family:Wingdings">font-family wingdings</p>
+
+        <p style="font-size:150%;">font-size set to 150%</p>
+
+        <p style="text-align:right; padding-right: 100px; font-size:200%">text-align is right</p>
+
+        <p><b>Bold</b></p>
+        <p><i>Italic</i></p>
+        <p>Text is <sub> subscript</sub> and <sup>superscript</sup></p>
+
+        <ul>
+            <li><b>bold text</b></li>
+            <li><strong>Strong text</strong></li>
+            <li><i>italic text</i></li>
+            <li><em>Emphasised text</em></li>
+            <li><mark>Marked text</mark></li>
+            <li>Deleted text</li>
+            <li><ins>Inserted text</ins></li>
+            <li><sub>subscript text</sub></li>
+            <li><sup>superscript text</sup></li>
+            <li><small>Small text</small></li>
+        </ul>
+
+        <p>
+            quoted text:
+            <q>I have a dream...</q>
+        </p>
+
+        <p>Blockquote sample
+        <blockquote cite="http://www.worldwildlife.org/who/index.html">
+            For 50 years, WWF has been protecting the future of nature.
+            The world's leading conservation organization,
+            WWF works in 100 countries and is supported by
+            1.2 million members in the United States and
+            close to 5 million globally.
+        </blockquote>
+        </p>
+
+        <p>
+        Address sample
+        <address>
+            John Smith.<br>
+            PO Box 564, Disneyland<br>
+            USA
+        </address>
+        </p>
+
+        <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948.</p>
+
+        <p>cite sample
+        <cite>War and Peace</cite>by John Smith
+        </p>
+        <p>
+            bi directional override: bdo
+        <bdo dir="rtl">This text will be written from right to left</bdo>
+        </p>
+
+        <h1 style="border:2px solid DodgerBlue;">2px border in Dodger blue. Go Dodgers!</h1>
+
+        <h1 style="background-color:rgb(255, 99, 71);">rgb background-color...</h1>
+        <h1 style="background-color:#ff6347;">hex background-color...</h1>
+        <h1 style="background-color:#ff6347;">many other formats for specifying colours</h1>
+
+    <h1> Anchor samples</h1>
+        <a href="http://netscape.com" target="_blank">Netscape target=_blank</a><br>
+        <a href="http://netscape.com" target="_self">Netscape target=_self</a><br>
+        <a href="http://netscape.com" target="_parent">Netscape target=_parent</a><br>
+        <a href="http://netscape.com" target="_top">Netscape target=_top</a><br>
+        <a href="http://netscape.com" title="Goes to netscape if you click">Link with hoover tool tip</a><br>
+
+        <a href="#jumphere">Jump to internal link</a>
+
+        <p> A bunch of text</p>
+        <p> A bunch of text</p>
+        <p> A bunch of text</p>
+        <p> A bunch of text</p>
+        <p> A bunch of text</p>
+        <h2 id="jumphere">Internal anchor: set with </h2>
+
+
+    <br>
+        <p> Setting image width and height with style is better because it prevents a style sheet from overridding the height and width attributes in the tag</p>
+        <img src="https://www.thepeoplesfriendtravel.co.uk/wp-content/uploads/sites/19/2017/11/Orkney-Shetland7-1.jpg" alt="The entrance to Lerwick" style="width:250px;height:250px;">
+
+        <p><img src="https://images-na.ssl-images-amazon.com/images/I/51a8L-dlWzL._UX385_.jpg" alt="Smiley face" style="float:right;width:42px;height:42px;">
+        The image will float to the right of the text.</p>
+
+    <p> HTML 5: The 'picture' tag is a way of serving different images to different devices</p>
+        <picture>
+            <source media="(min-width: 650px)" srcset="http://icons.iconarchive.com/icons/morcha/browsers/128/Netscape-icon.png">
+            <source media="(min-width: 465px)" srcset="http://icons.iconarchive.com/icons/morcha/browsers/32/Netscape-icon.png">
+            <img src="http://icons.iconarchive.com/icons/morcha/browsers/128/Netscape-icon.png" alt="Flowers" style="width:auto;">
+        </picture>
+    <emphasis>img tag is used by browsers that don't understand picture</emphasis>
+
+
+        <p> set list-style-type to disc</p>
+        <ul style="list-style-type:disc">
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ul>
+
+        <p> set list-style-type to square</p>
+        <ul style="list-style-type:square">
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ul>
+
+        <p> set the list-style-type to none</p>
+        <ul style="list-style-type:none">
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ul>
+
+        <p> Changed to ordered list</p>
+        <ol>
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ol>
+
+        <p> Changed list-style-type: decimal-leading-zero</p>
+        <ol style="list-style-type: decimal-leading-zero">
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ol>
+
+        <p> Changed type to A</p>
+        <ol type="A">
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ol>
+
+        <p> Changed type to a</p>
+        <ol type="a">
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ol>
+
+        <p> Changed type to a</p>
+        <ol type="I">
+            <li>Audi</li>
+            <li>BMW</li>
+            <li>Lexus</li>
+        </ol>
+
+        <p> Changed to 'dl' description list</p>
+        <dl>
+            <dt>Coke</dt>
+            <dd>Sugary fizzy drink</dd>
+            <dt>Coke Zero</dt>
+            <dd>Sugar free likeness of coke</dd>
+        </dl>
+
+        <div>Hello: div block level element</div>
+        <div>World: div block level element</div>
+
+        <span>Hello: span not block level</span>
+        <span>World: span not block level</span>
+        <span>World: span not block level</span>
+
+        <div style="background-color:black;color:white;padding:20px;">
+            <h2>London</h2>
+            <p>London is the capital city of "England". It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+        </div>
+        <h1>My <span style="color:red">Important</span> Heading</h1>
+
+
+        <h2 class="city">London</h2>
+        <p>London is the capital of England.</p>
+
+        <h2 class="city">Paris</h2>
+        <p>Paris is the capital of France.</p>
+
+        <h2 class="city">Tokyo</h2>
+        <p>Tokyo is the capital of Japan.</p>
+
+        <p>In this example, CSS styles all elements with the class name "city".</p>
+
+        <script>
+            function myFunctionxx() {
+                var x = document.getElementsByClassName("city");
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.color="yellow";
+                }
+            }
+            myFunctionxx();
+        </script>
+
+        <iframe src="https://users.cs.cf.ac.uk/Dave.Marshall/PERL/node259.html" name="iframe_a"></iframe>
+
+        <p><a href="https://users.cs.cf.ac.uk/Dave.Marshall/PERL/node259.html" target="iframe_a">Click here</a></p>
+
+        <p><a id="here"></a></p>
+        <script>
+            document.getElementById("here").innerHTML = "Some JavaScript, easy!";
+            document.getElementById("here").style.color = "blue";
+            </script>
+
+        <noscript>Sorry, your browser does not support JavaScript!</noscript>
+        Try it Yourself »
+
+        <p style="font-size:8vw">Scale-able text uses "vw", view width, not pixels: px</p>
+
+
+        <div class="left">
+            Left Menu<br><br><br><br>
+        </div>
+        <div class="main">
+            Main Content<br><br><br><br>
+        </div>
+        <div class="right">
+            Right Content<br><br><br><br>
+        </div>
+
+        <code>
+
+x = 5;<br>
+y = 6;<br>
+z = x + y;
+        </code>
+        <pre>
+        <code>
+// Put code inside pre because the code tag does not preserve whitespace and line-breaks
+x = 5;<br>
+y = 6;<br>
+z = x + y;
+        </code>
+        </pre>
+
+        <p>Save the document by pressing <kbd>Ctrl + S</kbd></p>
+
+        <p>If you input wrong value, the program will return <samp>Error!</samp> samp is used for sample output</p>
+
+
+        Einstein wrote: <var>E</var> = <var>mc</var><sup>2</sup>.
+
+        <p>Hello&nbsp;&nbsp;&nbsp;World with spaces!</p>
+        <p>My currency is &pound;</p>
+
+        <p>I will display &euro; with entity</p>
+        <p>I will display &#8364; with decimal</p>
+        <p>I will display &#x20AC; with hex</p>
+        <p>A &notin; {B, C, D}</p>
+        <p>Lonely &hearts;</p>
+
+        <br><br>
+
+        <!-- Basic form input type=text -->
+        <p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+        <form action="formProcessor.html">
+            First name:<br>
+            <input type="text" name="firstName" value="John">
+            <br>
+            Last name:<br>
+            <input type="text" name="lastName" value="Smith">
+            <br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <p>Form target=_blank for new page and method=POST to submit lots of data more securely</p>
+
+        <form target="_blank" method="POST">
+            <input type="radio" name="answer" value="yes" checked>Yes<br>
+            <input type="radio" name="answer" value="no">No<br>
+            <input type="radio" name="answer" value="maybe">Maybe<br>
+            <input type="Submit" value="Send"/>
+        </form>
+
+
+        <p>Used fieldset to group data together and legend to give the fieldset a title </p>
+        <form action="formProcessor.html">
+            <fieldset>
+                <legend>Personal information:</legend>
+                First name:<br>
+                <input type="text" name="firstname" value="Mickey"><br>
+                Last name:<br>
+                <input type="text" name="lastname" value="Mouse"><br><br>
+                Age:
+                <input type="number" name="age" value="38"><br>
+                <input type="submit" value="Upload">
+            </fieldset>
+        </form>
+
+        <p> Drop down list</p>
+        <form action="formProcessor.html">
+            <select name="cars">
+                <option value="saab">Saab</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi" selected>Audi</option>
+                <option value="ford">Ford</option>
+            </select>
+            <br><br>
+            <input type="submit">
+        </form>
+
+        <p> sie=4 and allow 'multiple'</p>
+        <form action="formProcessor.html">
+        <select name="cars" size="4" multiple>
+            <option value="toyota">Toyota</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+        <br><br>
+        <input type="submit">
+        </form>
+
+        <p> textarea is an editor</p>
+        <form action="formProcessor.html">
+            <textarea name="message" rows="7" cols="50">To be or not to be...</textarea>
+            <br>
+            <input type="submit" value="Submit Paper">
+        </form>
+
+        <p> HTML 5 datalist example </p>
+        <form action="formProcessor.html">
+        <input list="browsers" name="browser">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+        <input type="submit">
+        </form>
+
+        <form action="/formProcessor.html"
+              oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+            0
+            <input type="range" id="a" name="a" value="50">
+            100 +
+            <input type="number" id="b" name="b" value="50">
+            =
+            <output name="x"></output>
+            <br><br>
+            <input type="submit">
+        </form>
+
+        <form>
+            User name:<br>
+            <input type="text" name="username"><br>
+            User password:<br>
+            <input type="password" name="psw">
+        </form>
+
+        <form action="formProcessor.html">
+            First name:<br>
+            <input type="text" name="firstname" value="Mickey"><br>
+            Last name:<br>
+            <input type="text" name="lastname" value="Mouse"><br><br>
+            <input type="submit" value="Submit">
+            <input type="reset">
+        </form>
+
+        <button onClick="document.writeln('<p>Hello</p>')">Click me!</button>
+
+        <form action="formProcessor.html">
+            <input type="checkbox" name="vehicle1" value="Bike">I have a bike
+            <br>
+            <input type="checkbox" name="vehicle2" value="Car">I have a car
+            <br><br>
+            <input type="submit">
+        </form>
+
+        <form>
+            Select your favorite color:
+            <input type="color" name="favcolor">
+        </form>
+
+        <form>
+            Birthday:
+            <input type="date" name="bday">
+        </form>
+        </form>
+
+        <form action="formProcessor.html">
+            E-mail:
+            <input type="email" name="email">
+            <input type="submit">
+        </form>
+
+        <form action="formProcessor.html">
+            Birthday (month and year):
+            <input type="month" name="bdaymonth">
+            <input type="submit">
+        </form>
+
+        <form action="formProcessor.html">
+            Quantity (between 1 and 5):
+            <input type="number" name="quantity" min="1" max="5">
+            <input type="submit">
+        </form>
+
+        <p>input type="tel"</p>
+        <form action="formProcessor.html">
+            Quantity (between 1 and 5):
+            <input type="tel" name="quantity">
+            <input type="submit">
+        </form>
+
+        <form action="formProcessor.html">
+            Quantity (between 1 and 5):
+            <input type="number" name="quantity" min="1" max="5" disabled="true">
+            <input type="submit">
+        </form>
+
+        <form action="https://www.w3schools.com/action_page.php" >
+            Quantity (between 1 and 5):
+            <input type="text" name="quantity" value="hello" readonly="true">
+            <input type="submit">
+        </form>
+
+        First name:<input type="text" name="fname" autofocus>
+
+        <p> One form, submitting to two difference PHP scripts using 'formaction' attribute on the 'input' tag</p>
+        <form action="https://www.w3schools.com/action_page.php">
+            First name: <input type="text" name="fname"><br>
+            Last name: <input type="text" name="lname"><br>
+            <input type="submit" value="Submit"><br>
+            <input type="submit" formaction="https://www.w3schools.com/action_page2.php"
+                   value="Submit as admin">
+        </form>
+
+
+        <p> One form, submitting two difference encoding types using 'formenctype' attribute on the 'input' tag</p>
+        <form action="/action_page_binary.asp" method="post">
+            First name: <input type="text" name="fname"><br>
+            <input type="submit" value="Submit">
+            <input type="submit" formenctype="multipart/form-data"
+                   value="Submit as Multipart/form-data">
+        </form>
+
+        Quantity (between 1 and 5):
+        <input type="number" name="quantity" min="1" max="5">
+
+
+        <p> Using regex to validate input with the 'pattern' attribute</p>
+        <form action="/action_page.php">
+            Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+            <input type="submit">
+        </form>
+
+        <p> 'placeholder' attribute, suggests what to type</p>
+        <form action="/action_page.php">
+            <input type="text" name="fname"><br>
+            <input type="text" name="lname" placeholder="Last name"><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <p> 'reqiired' attribute, suggests what to type</p>
+        <form action="/action_page.php">
+            Username: <input type="text" name="usrname" required>
+            <input type="submit">
+        </form>
+
+
+        <p> 'step' attribute set to 3, number picker goes up in increments of 3</p>
+        <form action="/action_page.php">
+            <input type="number" name="points" step="3">
+            <input type="submit">
+        </form>
+
+        <p> Removed in HTML 5 elements </p>
+        <strike>strike removed</strike><br>
+        <big>big removed</big><br>
+        <font size="5">font removed</font><br>
+
+        <p> HTML 5 lets you create your own tags, using in the CSS</p>
+        <snoogie>This is the 'snoogie' tag I created</snoogie>
+
+        <h1>Famous Cities</h1>
+
+        <article>
+            <h2>London</h2>
+            <p>London is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+        </article>
+
+        <article>
+            <h2>Paris</h2>
+            <p>Paris is the capital and most populous city of France.</p>
+        </article>
+
+        <article>
+            <h2>Tokyo</h2>
+            <p>Tokyo is the capital of Japan, the center of the Greater Tokyo Area, and the most populous metropolitan area in the world.</p>
+        </article>
+
+        </section>
+
+        <div>Div is non-semantic element</div>
+        <span>Span is non-semantic element</span>
+        <article>Article is a semantic element</article>
+
+        <p>New HTML 5 contextual tags</p>
+        <div style="width:374px;">
+            <ul>
+                <li>&lt;article&gt;</li>
+                <li>&lt;aside&gt;</li>
+                <li>&lt;details&gt;</li>
+                <li>&lt;figcaption&gt;</li>
+                <li>&lt;figure&gt;</li>
+                <li>&lt;footer&gt;</li>
+                <li>&lt;header&gt;</li>
+                <li>&lt;main&gt;</li>
+                <li>&lt;mark&gt;</li>
+                <li>&lt;nav&gt;</li>
+                <li>&lt;section&gt;</li>
+                <li>&lt;summary&gt;</li>
+                <li>&lt;time&gt;</li>
+            </ul>
+        </div>
+        <br>
+        <p>
+        <h3>Section tag: A thematic grouping typically with a headers</h3>
+        <section>
+            <h1>WWF</h1>
+            <p>The World Wide Fund for Nature (WWF) is....</p>
+        </section>
+        </p>
+
+        <article>
+            <h1>What Does WWF Do?</h1>
+            <p>WWF's mission is to stop the degradation of our planet's natural environment,
+                and build a future in which humans live in harmony with nature.</p>
+        </article>
+
+        <article>
+            <header>
+                <h1>What Does WWF Do?</h1>
+                <p>WWF's mission:</p>
+            </header>
+            <p>WWF's mission is to stop the degradation of our planet's natural environment,
+                and build a future in which humans live in harmony with nature.</p>
+            <footer>
+                <p>Posted by: John Smith</p>
+                <p>Contact information: <a href="mailto:someone@example.com">
+                    someone@example.com</a>.</p>
+            </footer>
+
+
+        </article>
+
+        <nav>
+            <a href="http://yahoo.com">Yahoo</a> |
+            <a href="http://netscape.com">Netscape</a> |
+            <a href="http://google.com">Google</a> |
+            <a href="http://ddg.gg">Duck duck go</a> |
+            <a href="/jquery/">jQuery</a>
+        </nav>
+
+        <p>My family and I visited The Epcot center this summer.</p>
+
+        <aside>
+            <h4>Epcot Center</h4>
+            <p>The Epcot Center is a theme park in Disney World, Florida.</p>
+        </aside>
+
+        <mark>this the mark tag</mark>
+
+        <details>
+            trying details
+        </details>
+
+        <figcaption>this is a figcaption tag</figcaption>
+
+        <figure>
+            <img src="http://www.subbrit.org.uk/rsg/sites/s/saxa_vord/saxa_vord_panorama.jpg" alt="The Pulpit Rock" width="304" height="228">
+            <figcaption>Fig.1 - Saxa Vord, UK's northern most military base.</figcaption>
+        </figure>
+
+        <canvas id="myCanvas" width="200" height="200" style="border:1px solid #d3d3d3;">>
+            Your browser does not support the HTML5 canvas tag.</canvas>
+
+        <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.moveTo(10,10);
+            ctx.lineTo(150,150);
+            ctx.stroke();
+        </script>
+
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.</canvas>
+
+        <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(50,50,40,0,2*Math.PI);
+            ctx.stroke();
+        </script>
+
+        canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+        Your browser does not support the HTML5 canvas tag.</canvas>
+        <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.font = "30px Arial";
+            ctx.fillText("Hello World", 10, 50);
+        </script>
+        <br><br>
+
+        <p>Image to use:</p>
+        <img id="scream" src="https://www.w3schools.com/html/img_the_scream.jpg" alt="The Scream" width="220" height="277">
+
+        <p>Canvas to fill:</p>
+        <canvas id="myCanvas2" width="250" height="300"
+                style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.</canvas>
+
+        <p><button onclick="myCanvas2()">Try it</button></p>
+
+        <script>
+            function myCanvas2() {
+                var c = document.getElementById("myCanvas2");
+                var ctx = c.getContext("2d");
+                var img = document.getElementById("scream");
+                ctx.drawImage(img,0,0,50,50);
+            }
+        </script>
+
+        <p>Video example:</p>
+        <!-- autoplay -->
+        <video id="video1" controls width="150">
+            <source src="mov_bbb.mp4" type='video/mp4'>
+            <source src="mov_bbb.ogg" type='video/ogg'>
+            <source src="mov_bbb.webm" type='video/webm'>
+        </video>
+
+        <p>Canvas (the code draws the current frame of the video every 20 millisecond):</p>
+        <canvas id="myCanvas" width="270" height="135" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.</canvas>
+
+        <script>
+
+            var v = document.getElementById("video1");
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var i;
+
+            v.addEventListener("play", function() {i = window.setInterval(function() {ctx.drawImage(v,5,5,260,125)},20);}, false);
+            v.addEventListener("pause", function() {window.clearInterval(i);}, false);
+            v.addEventListener("ended", function() {clearInterval(i);}, false);
+
+        </script>
+
+        <p><strong>Note:</strong> The canvas tag is not supported in Internet
+            Explorer 8 and earlier versions.</p>
+
+        <svg width="100" height="100">
+            <circle cx="50" cy="50" r="40"
+                    stroke="green" stroke-width="4" fill="yellow" />
+            Sorry, your browser does not support inline SVG.
+        </svg>
+
+        <h1>Google Map example</h1>
+
+        <div id="map" style="width:300px;height:300px;"></div>
+
+        <p>Map sample: Won't work without Google API key</p>
+        <script>
+            function myMap() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(60.1530, 1.1493),
+                    zoom: 10,
+                    mapTypeId: google.maps.MapTypeId.HYBRID
+                }
+                var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            }
+            myMap();
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+        <video width="400" controls>
+        <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+        <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+        Your browser does not support HTML5 video.
+        </video>
+
+        <!-- "autoplay" removed -->
+        <video width="400">
+            <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+            <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+            Your browser does not support HTML5 video.
+        </video>
+
+    <br><br>
+        <div style="text-align:center">
+            <button onclick="playPause()">Play/Pause</button>
+            <button onclick="makeBig()">Big</button>
+            <button onclick="makeSmall()">Small</button>
+            <button onclick="makeNormal()">Normal</button>
+            <br><br>
+            <video id="video1" width="420">
+                <source src="http://techslides.com/demos/sample-videos/small.mp4" type="video/mp4">
+                <source src="http://techslides.com/demos/sample-videos/small.ogv" type="video/ogg">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+
+        <script>
+            var myVideo = document.getElementById("video1");
+
+            function playPause() {
+                if (myVideo.paused)
+                    myVideo.play();
+                else
+                    myVideo.pause();
+            }
+
+            function makeBig() {
+                myVideo.width = 560;
+            }
+
+            function makeSmall() {
+                myVideo.width = 320;
+            }
+
+            function makeNormal() {
+                myVideo.width = 420;
+            }
+        </script>
+
+        <audio controls>
+            <source src="http://www.music.helsinki.fi/tmt/opetus/uusmedia/esim/a2002011001-e02-128k.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+
+        <!--
+        <object width="400" height="50" data="https://www.w3schools.com/bookmark.swf"></object>
+        <object data="https://www.w3schools.com/audi.jpeg"></object>
+        <embed width="100%" height="500px" src="https://www.w3schools.com/snippet.html">
+        <embed width="100%" height="500px" src="formProcessor.html">
+        -->
+
+        <iframe width="420" height="345" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe>
+
+        <script>
+            var x = document.getElementById("demo");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;
+            }
+        </script>
+
+        <p>Click the button to get your coordinates.</p>
+
+        <button onclick="getLocation()">Try It</button>
+
+        <p id="loc1"></p>
+        <script>
+            var x = document.getElementById("loc1");
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude +
+                    "<br>Longitude: " + position.coords.longitude;
+            }
+        </script>
+
+        <a href="https://www.google.com/maps/?q=60.1530,-1.1493">Open map</a>
+
+
+        <!-- Drag & Drop -->
+        <script>
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
+
+            function drag(ev) {
+                // Remember ID of "drag1" image
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
+
+            function drop(ev) {
+                ev.preventDefault();
+                // retrieve ID of "drag1" image
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+            }
+        </script>
+
+        <!-- Allows the drop -->
+        <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+        <!-- Allows the drag -->
+        <img id="drag1" src="https://i.pinimg.com/236x/2d/1d/fc/2d1dfcc445185f86ac905ebffbd315ce--teddy-bear-birthday-birthday-party-ideas.jpg" draggable="true"
+             ondragstart="drag(event)" width="336" height="69">
+
+        <br><br>
+
+        <p id="localStorage"></p>
+        <script>
+            if (typeof(Storage) !== "undefined") {
+                document.writeln("<b>Browser supports local storage!</b>")
+                // Store
+                localStorage.setItem("lastname", "String stored in local storage");
+                document.getElementById("localStorage").innerHTML = localStorage.getItem("lastname");
+                localStorage.removeItem("localStorage");
+            } else {
+                document.writeln("<i>Browser does not support local storage!</i>")
+            }
+        </script>
+
+
+        <script>
+            function clickCounter() {
+                if (typeof(Storage) !== "undefined") {
+                    if (sessionStorage.clickcount) {
+                        sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+                    } else {
+                        sessionStorage.clickcount = 1;
+                    }
+                    document.getElementById("result").innerHTML = "You have clicked the button " + sessionStorage.clickcount + " time(s) in this session.";
+                } else {
+                    document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+                }
+            }
+
+        </script>
+
+        <p>
+            <button onclick="clickCounter()" type="button">Click me!</button>
+        </p>
+        <div id="result"></div>
+        <p>Click the button to see the counter increase.</p>
+        <p>Close the browser tab (or window), and try again, and the counter is reset.</p>
+
+
+
+        <button onclick="startWorker()">Start Worker</button>
+        <button onclick="stopWorker()">Stop Worker</button>
+
+        <p><strong>Note:</strong> Internet Explorer 9 and earlier versions do not support Web Workers.</p>
+
+        <script>
+            var w;
+
+            function startWorker() {
+                if(typeof(Worker) !== "undefined") {
+
+                    if(typeof(w) == "undefined") {
+                        w = new Worker("js/demo_workers.js");
+                    }
+                    w.onmessage = function(event) {
+                        document.getElementById("worker_result").innerHTML = event.data;
+                    };
+                } else {
+                    document.getElementById("worker_result").innerHTML = "Sorry, your browser does not support Web Workers...";
+                }
+            }
+
+            function stopWorker() {
+                w.terminate();
+                w = undefined;
+            }
+        </script>
+
+        <p>Count numbers: <output id="worker_result"></output></p>
+
+
+        <br><br>
+    </body>
+</html>
