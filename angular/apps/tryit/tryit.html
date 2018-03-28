@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-
 <html lang="en-US">
 <head>
     <link rel="stylesheet" href="css/old-school.css">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <title>Angular Example</title>
@@ -32,7 +32,7 @@
 <div class="container wrapper">
     <div id="top">
 
-        <div ng-app="myApp">
+        <div>
             <h1> Angular Samples </h1>
             <ul>
                 <li>AngularJS was created by Google & version 1.0 was released in 2012</li>
@@ -54,7 +54,7 @@
 
         <!-- Example -->
         <br>
-        <h3>Example: Initialising form input field</h3>
+        <h3>Initialising form input field</h3>
         <hr>
         <pre><code>ng-init="myCol='green'" & value="\{\{myCol\}\}</code></pre>
         <p>Change the value of the input field:</p>
@@ -64,25 +64,25 @@
 
         <!-- Example -->
         <br>
-        <h3>Example: Initialising a variable with ng-init and using it with ng-bind</h3>
+        <h3>Initialising a variable with ng-init and using it with ng-bind</h3>
         <hr>
         <pre><code>ng-init="name2='Bilbo'"</code></pre>
         <div ng-init="name2='Bilbo'">
-            <p>The name is <b ng-bind="name" class="sample-data"><span ng-bind="name2"></span></b></p>
+            <p>The name is <b ng-bind="name2" class="sample-data"></b></p>
         </div>
 
         <!-- Example -->
         <br>
-        <h3>ng-repeat & data-ng-bind="yourName"</h3>
+        <h3>Initialising a variable with ng-init and using it with ng-bind</h3>
         <hr>
         <pre><code>ng-repeat="x in names"</code></pre>
         <div data-ng-init="yourName='Bilbo'">
-            <p>The name is <b ng-bind="name" class="sample-data"><span data-ng-bind="yourName"></span></b>/p>
+            <p>The name is <b ng-bind="yourName" class="sample-data"></b></p>
         </div>
 
         <!-- Example -->
         <br>
-        <h3>Example: Using \{\{ \}\} or ng-bind, your choice</h3>
+        <h3>Using \{\{ \}\} or ng-bind, your choice</h3>
         <hr>
         <pre><code>5 + 5 = \{\{ 5 + 5 \}\}</code></pre>
         <ul>
@@ -90,7 +90,7 @@
             <li>AngularJS expressions can also be written inside a directive: ng-bind="expression".</li>
         </ul>
         <div>
-            <p>My first expression: 5 + 5 = <b ng-bind="name" class="sample-data">{{ 5 + 5 }}</b></p>
+            <p>Math expression: 5 + 5 = <b class="sample-data">{{ 5 + 5 }}</b></p>
         </div>
 
         <!-- Example -->
@@ -99,7 +99,7 @@
         <hr>
         <pre><code>Total in dollar: \{\{ quantity * cost \}\}</code></pre>
         <div ng-init="quantity=2;cost=5">
-            <p>Total in dollar: <b ng-bind="name" class="sample-data">{{ quantity * cost }}</b></p>
+            <p>Total in dollar: <b class="sample-data">{{ quantity * cost }}</b></p>
         </div>
 
         <!-- Example -->
@@ -108,9 +108,9 @@
         <hr>
         <pre><code>\{\{ firstName + " " + lastName \}\}</code></pre>
         <div ng-init="firstName='Bilbo';lastName='Baggins'">
-            <p>The name is {{ firstName + " " + lastName }}<br>
-                The name is: <b ng-bind="name" class="sample-data"><span
-                    ng-bind="firstName + ' ' + lastName"></span></b>/p>
+            <p>The name is using \{\{\}\}: <b class="sample-data">{{ firstName + " " + lastName }}</b><br>
+                The name is using ng-bind: <b class="sample-data"><span
+                    ng-bind="firstName + ' ' + lastName"></span></b></p>
         </div>
 
         <!-- Example -->
@@ -118,8 +118,8 @@
         <h3>Another concat example</h3>
         <hr>
         <pre><code>\{\{ person.firstName + " " + person.lastName \}\}</code></pre>
-        <div ng-init="person={firstName:'Bilbo',lastName:'Doe'}">
-            <p>The name is {{ person.firstName + " " + person.lastName }}</p>
+        <div ng-init="person={firstName:'Bilbo',lastName:'Baggns'}" class="sample-data">
+            <p>The name is: {{ person.firstName + " " + person.lastName }}</p>
         </div>
 
 
@@ -130,8 +130,8 @@
         <pre><code>"points=[1,15,19,2,40]" & \{\{ points[2] \}\}</code></pre>
         <div ng-init="points=[1,15,19,2,40]">
 
-            <p>The third result is {{ points[2] }}</p>
-            <p>The fourth result is <span ng-bind="points[3]"></span></p>
+            <p>The third result is <b class="sample-data">{{ points[2] }}</b></p>
+            <p>The fourth result is <span class="sample-data" ng-bind="points[3]"></span></p>
         </div>
 
         <!-- Example: Basic input & output -->
@@ -244,7 +244,7 @@
         <h3>Filters: currency</h3>
         <hr>
         <pre><code>\{\{ price | currency \}\}</code></pre>
-        <div ng-app="myApp" ng-controller="costCtrl">
+        <div ng-controller="costCtrl">
             <p>Price: <b class="sample-data">{{ price | currency }}</b> (Castar in Middle Earth)</p>
         </div>
 
@@ -292,7 +292,7 @@
         <i>Better to use Angular services rather than the BOM</i>
         <h3>Again but uses window.location [Better to use Angular services]</h3>
         <pre><code>window.location</code></pre>
-        <div ng-app="myApp" ng-controller="myUrlCtrl2">
+        <div ng-controller="myUrlCtrl2">
             <p>The url of this page is:</p>
             <h3><b class="sample-data">{{myUrl}}</b></h3>
         </div>
@@ -433,7 +433,7 @@
         <h3>Using ng-disabled to disable a button</h3>
         <hr>
         <pre><code>button ng-disabled="mySwitch"</code></pre>
-        <div ng-app="" ng-init="mySwitch=true">
+        <div ng-init="mySwitch=true">
             <p>
                 <button ng-disabled="mySwitch">Click Me!</button>
             </p>
@@ -585,7 +585,7 @@
         <br>
         <h3>Uppercase, Lowercase, isString, isNumber</h3>
         <hr>
-        <div ng-app="myApp" ng-controller="myUpDown">
+        <div ng-controller="myUpDown">
             <p>to upper:
             <p><b class="sample-data">{{ x1 }}</b></p>
             <p>to lower:
