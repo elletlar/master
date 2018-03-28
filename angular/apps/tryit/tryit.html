@@ -21,10 +21,7 @@
         table tr:nth-child(even) {
             background-color: #000022;
         }
-
     </style>
-
-
 </head>
 <body ng-app="myApp">
 
@@ -56,7 +53,7 @@
         <br>
         <h3>Initialising form input field</h3>
         <hr>
-        <pre><code>ng-init="myCol='green'" & value="\{\{myCol\}\}</code></pre>
+        <pre><code>ng-init & ng-model</code></pre>
         <p>Change the value of the input field:</p>
         <div ng-init="myCol='green'">
             <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
@@ -66,7 +63,7 @@
         <br>
         <h3>Initialising a variable with ng-init and using it with ng-bind</h3>
         <hr>
-        <pre><code>ng-init="name2='Bilbo'"</code></pre>
+        <pre><code>ng-init & ng-bind</code></pre>
         <div ng-init="name2='Bilbo'">
             <p>The name is <b ng-bind="name2" class="sample-data"></b></p>
         </div>
@@ -75,14 +72,14 @@
         <br>
         <h3>Initialising a variable with ng-init and using it with ng-bind</h3>
         <hr>
-        <pre><code>ng-repeat="x in names"</code></pre>
+        <pre><code>data-ng-init & data-ng-bind</code></pre>
         <div data-ng-init="yourName='Bilbo'">
-            <p>The name is <b ng-bind="yourName" class="sample-data"></b></p>
+            <p>The name is <b data-ng-bind="yourName" class="sample-data"></b></p>
         </div>
 
         <!-- Example -->
         <br>
-        <h3>Using \{\{ \}\} or ng-bind, your choice</h3>
+        <h3>Using: \{{}}</h3>
         <hr>
         <pre><code>5 + 5 = \{\{ 5 + 5 \}\}</code></pre>
         <ul>
