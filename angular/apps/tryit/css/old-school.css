@@ -5,6 +5,10 @@ body {
     background-color: #000000;
 }
 
+code {
+    color: orangered;
+}
+
 .sample-data {
     color: #008080
 }

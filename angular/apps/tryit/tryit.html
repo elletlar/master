@@ -49,42 +49,54 @@
         <br>
 
 
-        <!-- Example -->
+        <!-- Example: Receiving user input and modifying the form -->
         <br>
-        <h3>Initialising form input field</h3>
+        <h3>Receiving user input and modifying the form</h3>
         <hr>
-        <pre><code>ng-init & ng-model</code></pre>
-        <p>Change the value of the input field:</p>
-        <div ng-init="myCol='green'">
-            <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
-        </div>
-
-        <!-- Example -->
-        <br>
-        <h3>Initialising a variable with ng-init and using it with ng-bind</h3>
-        <hr>
-        <pre><code>ng-init & ng-bind</code></pre>
-        <div ng-init="name2='Bilbo'">
-            <p>The name is <b ng-bind="name2" class="sample-data"></b></p>
-        </div>
-
-        <!-- Example -->
-        <br>
-        <h3>Initialising a variable with ng-init and using it with ng-bind</h3>
-        <hr>
-        <pre><code>data-ng-init & data-ng-bind</code></pre>
-        <div data-ng-init="yourName='Bilbo'">
-            <p>The name is <b data-ng-bind="yourName" class="sample-data"></b></p>
-        </div>
-
-        <!-- Example -->
-        <br>
-        <h3>Using: \{{}}</h3>
-        <hr>
-        <pre><code>5 + 5 = \{\{ 5 + 5 \}\}</code></pre>
         <ul>
-            <li>AngularJS expressions can be written inside double braces: {{ expression }}.</li>
-            <li>AngularJS expressions can also be written inside a directive: ng-bind="expression".</li>
+            <li>init variable: <code>ng-init="backgroundColor='green'"</code></li>
+            <li>bind form data: <code>ng-model="backgroundColor"</code></li>
+            <li>set initial text: <code ng-non-bindable>value="{{backgroundColor}}"</code></li>
+            <li>set background colour editor: <code>background-color:{{backgroundColor}}</code></li>
+        </ul>
+        <p>Enter colour for the editor background:</p>
+        <div ng-init="backgroundColor='green'">
+            <input style="background-color:{{backgroundColor}}" ng-model="backgroundColor" value="{{backgroundColor}}">
+        </div>
+
+        <!-- Example: Initialising and binding a variable -->
+        <br>
+        <h3>Initialising and binding a variable</h3>
+        <hr>
+        <ul>
+            <li>init variable: <code class="sample-code">ng-init="hobbitName='Bilbo'"</code></li>
+            <li>bind data to HTML element: <code>ng-bind="hobbitName"</code></li>
+        </ul>
+        <div ng-init="hobbitName='Bilbo'">
+            <p>The name is <b ng-bind="hobbitName" class="sample-data"></b></p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Initialising and binding a variable: Using HTML 5 valid variants</h3>
+        <hr>
+        <ul>
+            <li>init variable: <code class="sample-code">data-ng-init="hobbitName='Bilbo'"</code></li>
+            <li>bind data to the paragraph: <code>data-ng-bind="hobbitName"</code></li>
+        </ul>
+        <div data-ng-init="hobbitName='Bilbo'">
+            <p>The name is <b data-ng-bind="hobbitName" class="sample-data"></b></p>
+        </div>
+
+
+        <!-- Example -->
+        <br>
+        <h3>Using the interpolation directive: <code ng-non-bindable>{{}}</code></h3>
+        <hr>
+        <pre><code ng-non-bindable>5 + 5 = {{ 5 + 5 }}</code></pre>
+        <ul>
+            <li>AngularJS expressions can be written inside double braces: <code ng-non-bindable>{{ expression }}</code></li>
+            <li>AngularJS expressions can also be written inside a directive: <code>ng-bind="expression"</code></li>
         </ul>
         <div>
             <p>Math expression: 5 + 5 = <b class="sample-data">{{ 5 + 5 }}</b></p>
