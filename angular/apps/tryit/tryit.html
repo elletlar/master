@@ -138,11 +138,12 @@
 
         <!-- Example: Basic array -->
         <br>
-        <h3>Example: Basic array op</h3>
+        <h3>Basic array op</h3>
         <hr>
         <ul>
             <li>Initialise the array: <code>points=[1,15,19,2,40]</code></li>
             <li>Display an element: <code ng-non-bindable>{{ points[2] }}</code></li>
+            <li>Or display an element like: <code ng-non-bindable>ng-bind="points[3]"</code></li>
         </ul>
         <div ng-init="points=[1,15,19,2,40]">
 
@@ -152,18 +153,23 @@
 
         <!-- Example: Basic input & output -->
         <br>
-        <h3> Example: Basic input & output</h3>
+        <h3> Basic input & output</h3>
         <hr>
-        <pre><code>ng-model="name", ng-bind="name"</code></pre>
+        <ul>
+            <li>Link form to the model: <code>ng-model="name"</code></li>
+            <li>Bind model to HTML tag: <code ng-non-bindable>ng-bind="name"</code></li>
+        </ul>
         <div>
             <p>Type here : <input type="text" ng-model="name"></p>
             Output here: <b ng-bind="name" class="sample-data"></b>
         </div>
         <br>
 
+
+
         <!-- Example: Simple Controller -->
         <br>
-        <h3>Example: Concatenate input </h3>
+        <h3>Concatenate input </h3>
         <hr>
         <pre><code>ng-controller</code></pre>
         <div ng-controller="simplePersonCtrl">
@@ -176,29 +182,36 @@
 
         <!-- Example: Controller with function -->
         <br>
-        <h3>Example: Display function call result</h3>
+        <h3>Display function call result</h3>
         <hr>
-        <pre><code>\{\{fullName()\}\}</code></pre>
+        <pre><code ng-non-bindable>{{fullName()}}</code></pre>
         <div ng-controller="personCtrl">
             First Name: <input type="text" ng-model="firstName"><br>
             Last Name: <input type="text" ng-model="lastName"><br>
             <br>
-            Full Name: <b class="sample-data">{{fullName()}}</b>
+            Full Name from concat function is: <b class="sample-data">{{fullName()}}</b>
         </div>
 
         <!-- Example: Controller with function -->
         <br>
-        <h3>Example: Initialise variable with control and display it inline</h3>
+        <h3>Initialise variable with control and display it inline using ng-bind</h3>
         <hr>
-        <pre><code>$scope.carName="Shire Motors" & \{\{carName\}\}</code></pre>
+        <ul>
+            <li>Init variable in controller: <code>$scope.carName="Shire Motors"</code></li>
+            <li>Bind variable to HTML output element: <code ng-non-bindable>ng-bind="name"</code></li>
+        </ul>
+        <pre><code ng-non-bindable>$scope.carName="Shire Motors" & \{\{carName\}\}</code></pre>
         <div ng-controller="carCtrl">Bilbo's car built by: <b class="sample-data">{{carName}}</b></div>
+
 
         <!-- Example -->
         <br>
-        <h3>Example: Initialise variable with control and display it inline</h3>
+        <h3>Initialise variable with control and display it inline using interpolator</h3>
         <hr>
-        <pre><code>$scope.name = "Gandalf the Grey & \{\{name\}\}";</code></pre>
-
+        <ul>
+            <li>Init variable in controller: <code>$scope.name = "Gandalf the Grey"</code></li>
+            <li>Display: <code ng-non-bindable>{{name}}</code></li>
+        </ul>
         <div ng-controller="gandalfCtrl">
             <input ng-model="name">
             <p>My name is <b class="sample-data">{{name}}</b></p>
@@ -206,7 +219,7 @@
 
         <!-- Example: Repeat (Iteration) -->
         <br>
-        <h3>Example: Using ng-repeat to turn a collection into an UL</h3>
+        <h3>Using ng-repeat to turn a collection into an UL</h3>
         <hr>
         <pre><code>ng-repeat="x in names"</code></pre>
         <div ng-controller="hobbitsCtrl">
@@ -217,12 +230,11 @@
 
         <!-- Example: Scope -->
         <br>
-        <h3>Example: ng-controller & scope</h3>
+        <h3>Illustrating how scope works with controls</h3>
         <hr>
-        <pre><code>ng-repeat="x in names"</code></pre>
+        <pre>Showing variable color in different scopes: <code ng-non-bindable>{{color}}</code></pre>
         <p>The rootScope's favourite color:</p>
         <p class="sample-data">{{color}}</p>
-
         <div ng-controller="scopeCtrl">
             <p>The scope of the controller's favourite color:</p>
             <p style="color:hotpink">{{color}}</p>
@@ -231,11 +243,14 @@
         <p class="sample-data">{{color}}</p>
 
 
-        <!-- Example -->
+        <!-- Example: upper and lower case -->
         <br>
         <h3>Filters: uppercase & lowercase</h3>
         <hr>
-        <pre><code>\{\{ firstName | uppercase \}\} & \{\{ lastName | lowercase \}\}</code></pre>
+        <ul>
+            <li>Upper: <code ng-non-bindable>{{ firstName | uppercase }}</code></li>
+            <li>Lower: <code ng-non-bindable>{{ lastName | lowercase }}</code></li>
+        </ul>
         <div ng-controller="upcaseCtrl">
             <p>The name is <b class="sample-data">{{ firstName | uppercase }}</b></p>
             <p>The name is <b class="sample-data">{{ lastName | lowercase }}</b></p>
@@ -255,13 +270,14 @@
             </ul>
         </div>
 
+
         <!-- Example -->
         <br>
         <h3>Filters: currency</h3>
         <hr>
-        <pre><code>\{\{ price | currency \}\}</code></pre>
+        <pre><code ng-non-bindable>{{ price | currency }}</code></pre>
         <div ng-controller="costCtrl">
-            <p>Price: <b class="sample-data">{{ price | currency }}</b> (Castar in Middle Earth)</p>
+            <p>Price: <b class="sample-data">{{ price | currency }}</b> ("Castar" in Middle Earth?)</p>
         </div>
 
         <!-- Example -->
@@ -276,6 +292,7 @@
                 </li>
             </ul>
         </div>
+
 
         <!-- Example: Filter user input -->
         <br>
@@ -295,7 +312,10 @@
         <br>
         <h3>Uses $location service to find the page URL</h3>
         <hr>
-        <pre><code>app.controller('myUrlCtrl', function($scope, $location) & $location.absUrl();</code></pre>
+        <ul>
+            <li>Upper: <code ng-non-bindable>app.controller('myUrlCtrl', function($scope, $location)</code></li>
+            <li>Lower: <code ng-non-bindable>$location.absUrl()</code></li>
+        </ul>
         <div ng-controller="myUrlCtrl">
             <p>The url of this page is:</p>
             <p><b class="sample-data">{{myUrl}}</b></p>
@@ -306,7 +326,6 @@
         <h3>Uses BOM (Browser Object Model) to find the page URL</h3>
         <hr>
         <i>Better to use Angular services rather than the BOM</i>
-        <h3>Again but uses window.location [Better to use Angular services]</h3>
         <pre><code>window.location</code></pre>
         <div ng-controller="myUrlCtrl2">
             <p>The url of this page is:</p>
@@ -315,35 +334,34 @@
 
         <!-- Example: HTTP Service -->
         <br>
-        <h3><b>Important:</b> Using the http service</h3>
+        <h3>Using the http service</h3>
         <hr>
-        <pre><code>
-            function ($scope, $http) {
-                $http.get("welcome.html").then(function (response) {
-                $scope.myWelcome = response.data;
-                ...
-            }
+        <pre><code>function ($scope, $http) {
+$http.get("welcome.html").then(function (response) {
+$scope.myWelcome = response.data;
+...
+}
         </code></pre>
         <div ng-controller="myHttpCtrl">
             <p>Today's welcome message is:</p>
             <p><b class="sample-data">{{myWelcome}}</b></p>
         </div>
 
-        <!-- Example: HTTP Service -->
+        <!-- Example: HTTP Service again -->
         <br>
         <h3><b>Important:</b> Using the http service</h3>
         <hr>
-        <pre><code>
-            function ($scope, $http) {
-                $http.get("welcome.html").then(function (response) {
-                $scope.myWelcome = response.data;
-                ...
-            }
+        <pre><code>function ($scope, $http) {
+$http.get("welcome.html").then(function (response) {
+$scope.myWelcome = response.data;
+...
+}
         </code></pre>
         <div ng-controller="myHttpCtrl2">
             <p>Today's welcome message is:</p>
             <h1><b class="sample-data">{{myUrl}}{{myWelcome}}</b></h1>
         </div>
+
 
         <!-- Example: HTTP Service & JSON -->
         <br>
