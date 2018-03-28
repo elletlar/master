@@ -104,39 +104,46 @@
 
         <!-- Example -->
         <br>
-        <h3>Example: Using data-ng-bind to make the page valid HTML</h3>
+        <h3>Example: Basic arithmetic inside the interpolator directive</h3>
         <hr>
-        <pre><code>Total in dollar: \{\{ quantity * cost \}\}</code></pre>
+        <pre><code ng-non-bindable>{{ quantity * cost }}</code></pre>
         <div ng-init="quantity=2;cost=5">
             <p>Total in dollar: <b class="sample-data">{{ quantity * cost }}</b></p>
         </div>
 
-        <!-- Example -->
+        <!-- Example: Concat example -->
         <br>
-        <h3>Example: Concating two strings together</h3>
+        <h3 ng-non-bindable>Concatenating two strings together: {{}} vs bg-bind</h3>
         <hr>
-        <pre><code>\{\{ firstName + " " + lastName \}\}</code></pre>
+        <ul>
+            <li>Initialise the variable: <code ng-non-bindable>ng-init="firstName='Bilbo';lastName='Baggins'"</code></li>
+            <li>way 1: <code>{{ firstName + " " + lastName }}</code></li>
+            <li>Way 2: <code>ng-bind="firstName + ' ' + lastName"</code></li>
+        </ul>
         <div ng-init="firstName='Bilbo';lastName='Baggins'">
-            <p>The name is using \{\{\}\}: <b class="sample-data">{{ firstName + " " + lastName }}</b><br>
-                The name is using ng-bind: <b class="sample-data"><span
+            <p><span ng-non-bindable>Display name using {{}}:</span> <b class="sample-data">{{ firstName + " " + lastName }}</b><br>
+                Display name using ng-bind: <b class="sample-data"><span
                     ng-bind="firstName + ' ' + lastName"></span></b></p>
         </div>
 
-        <!-- Example -->
+        <!-- Example: Concat example -->
         <br>
         <h3>Another concat example</h3>
         <hr>
-        <pre><code>\{\{ person.firstName + " " + person.lastName \}\}</code></pre>
+        <pre><code code ng-non-bindable>{{ person.firstName + " " + person.lastName }}</code></pre>
         <div ng-init="person={firstName:'Bilbo',lastName:'Baggns'}" class="sample-data">
-            <p>The name is: {{ person.firstName + " " + person.lastName }}</p>
+            <p>The concatenated name is: {{ person.firstName + " " + person.lastName }}</p>
         </div>
 
 
-        <!-- Example -->
+        <!-- Example: Basic array -->
         <br>
         <h3>Example: Basic array op</h3>
         <hr>
-        <pre><code>"points=[1,15,19,2,40]" & \{\{ points[2] \}\}</code></pre>
+        <ul>
+            <li>Initialise the array: <code>points=[1,15,19,2,40]</code></li>
+            <li>Display an element: <code ng-non-bindable>{{ points[2] }}</code></li>
+        </ul>
         <div ng-init="points=[1,15,19,2,40]">
 
             <p>The third result is <b class="sample-data">{{ points[2] }}</b></p>
