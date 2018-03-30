@@ -38,12 +38,14 @@
                     <li>The ng-app directive defines an AngularJS application.</li>
                     <li>The ng-model directive binds the value of HTML inputs to application data.</li>
                     <li>The ng-bind directive binds application data to the HTML view.</li>
-                    <li>IOW use ng-model to receive data and ng-bind to display data</li>
+                    <li>The ng-repeat iterates through data in a collection.</li>
+                    <li>ng-options is used to populate a select drop down list.</li>
+                    <li ng-non-bindable>ng-non-bindable allows the display of "{{x}}" otherwise it would be evaluated.</li>
                 </ul>
                 <li>AngularJS starts automatically when the web page has loaded.</li>
                 <li>Include the script src angular.min.js</li>
                 <li><b>Unlike JS, angular expressions can be written directly inside HTML</b></li>
-                <li> Add controllers, directives, filters, and more</li>
+                <li>Add controllers, directives, filters, and more</li>
             </ul>
         </div>
         <br>
@@ -365,14 +367,14 @@ $scope.myWelcome = response.data;
 
         <!-- Example: HTTP Service & JSON -->
         <br>
-        <h3>HTTP & JSON</h3>
+        <h3>HTTP & JSON: Very simple in Angular</h3>
         <hr>
-        <pre><code>
-                app.controller('customersCtrl', function ($scope, $http) {
-                $http.get("https://www.w3schools.com/angular/customers.php").then(function (response) {
-                    // { "records":[ {"Name":"Alfreds Futterkiste","City":"Berlin","Country":"Germany"}, {"Name":
-                    $scope.myData = response.data.records; // "records" is name of array in the JSON
-                });
+        <pre><code>app.controller('customersCtrl', function ($scope, $http) {
+$http.get("https://www.w3schools.com/angular/custome
+            rs.php").then(function (response) {
+// { "records":[ {"Name":"Alfreds Futterkiste","City":"Berlin","Country":"Germany"}, {"Name":
+$scope.myData = response.data.records; // "records" is name of array in the JSON
+});
         </code></pre>
         <div ng-controller="customersCtrl">
             <ul>
@@ -414,7 +416,10 @@ $scope.myWelcome = response.data;
         <br>
         <h3>HTTP & JSON & Tables, orderBy Country & uppercase</h3>
         <hr>
-        <pre><code>ng-repeat="x in myData | orderBy : 'Country' & {{ x.Country | uppercase}}</code></pre>
+        <ul>
+            <li>Upper: <code ng-non-bindable>ng-repeat="x in myData | orderBy : 'Country'</code></li>
+            <li>Lower: <code ng-non-bindable>{{ x.Country | uppercase}}</code></li>
+        </ul>
         <div ng-controller="customersCtrl">
             <table>
                 <tr ng-repeat="x in myData | orderBy : 'Country'">
@@ -427,7 +432,7 @@ $scope.myWelcome = response.data;
 
         <!-- Example: Select -->
         <br>
-        <h3>Selector</h3>
+        <h3>Implementing a elector</h3>
         <hr>
         <pre><code>ng-options="x.Country for x in myData"</code></pre>
         <div ng-controller="customersCtrl">
@@ -439,7 +444,7 @@ $scope.myWelcome = response.data;
         <!-- Example: Selecting a value -->
         <!-- In a key value pair, it always returns the selected value -->
         <br>
-        <h3>Selector & Display value chosen</h3>
+        <h3>Implementing a elector & displaying value chosen</h3>
         <hr>
         <div ng-controller="customersCtrl">
             <p>Select a person</p>
@@ -448,11 +453,11 @@ $scope.myWelcome = response.data;
             <p>You selected: <b class="sample-data">{{selectedPerson.Name}}</b></p>
         </div>
 
-
         <!-- Example -->
         <br>
         <h3>SQL: Selecting data from SQL database</h3>
         <hr>
+        <pre><code>ng-repeat="x in names"</code></pre>
         <div ng-controller="customersCtrlSql">
             <table>
                 <tr ng-repeat="x in names">
@@ -478,7 +483,6 @@ $scope.myWelcome = response.data;
                 Disabled? <b class="sample-data">{{ mySwitch }}</b>
             </p>
         </div>
-
 
         <!-- Example: ng-disabled -->
         <br>
@@ -507,7 +511,7 @@ $scope.myWelcome = response.data;
         <pre><code>p ng-click="count = count + 1"</code></pre>
         <div ng-controller="myMouseMoveCtrl">
             <p ng-click="count = count + 1"><b class="sample-data">Click on me!</b></p>
-            <h2>{{ count }}</h2>
+            <h2><b class="sample-data-secondary">{{ count }}</b></h2>
         </div>
 
         <!-- Example -->
@@ -566,7 +570,7 @@ $scope.myWelcome = response.data;
         <form>
             Select a topic:
             <select ng-model="myVar">
-                <option value="">
+                <option value="orcs">
                 <option value="hobbits">hobbits
                 <option value="dwarfs">dwarfs
                 <option value="elves">elves
@@ -574,9 +578,13 @@ $scope.myWelcome = response.data;
         </form>
 
         <div ng-switch="myVar">
+            <div ng-switch-when="orcs">
+                <p><b class="sample-data">Hobbits</b></p>
+                <p><b class="sample-data-secondary">In Mordor</b></p>
+            </div>
             <div ng-switch-when="hobbits">
                 <p><b class="sample-data">Hobbits</b></p>
-                <p><b class="sample-data-secondary">In the shire</b></p>
+                <p><b class="sample-data-secondary">In The Shire</b></p>
             </div>
             <div ng-switch-when="dwarfs">
                 <p><b class="sample-data">Dwarfs</b></p>
@@ -592,7 +600,7 @@ $scope.myWelcome = response.data;
         <br>
         <h3>Using required & valid</h3>
         <hr>
-        <pre><code>ng-switch="myVar" ng-switch-when="hobbits"</code></pre>
+        <pre><code>ng-switch="myVar", ng-switch-when="hobbits"</code></pre>
         <p>Try writing in the input field:</p>
         <form name="myForm">
             <input name="myInput" ng-model="myInput" required>
@@ -605,7 +613,7 @@ $scope.myWelcome = response.data;
         <br>
         <h3>Using touch, untouched in a form</h3>
         <hr>
-        <pre><code>{{myForm2.myInput2.$touched}}</code></pre>
+        <pre><code ng-non-bindable>{{myForm2.myInput2.$touched}}</code></pre>
         <form name="myForm2">
             <input name="myInput2" ng-model="myInput2" type="email">
         </form>
