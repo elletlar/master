@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <link rel="stylesheet" href="css/old-school.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <title>Angular Example</title>
+
+    <style>
+        table, th, td {
+            border: 0px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #000011;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #000022;
+        }
+
+    </style>
+
+
+</head>
+<body ng-app="myApp">
+
+<!-- Background -->
+<div class="container wrapper">
+    <div id="top">
+
+        <div ng-app="myApp">
+            <h1> Angular Samples </h1>
+            <ul>
+                <li>AngularJS was created by Google & version 1.0 was released in 2012</li>
+                <li>AngularJS extends JS with "ng" directives</li>
+                <ul>
+                    <li>The ng-app directive defines an AngularJS application.</li>
+                    <li>The ng-model directive binds the value of HTML inputs to application data.</li>
+                    <li>The ng-bind directive binds application data to the HTML view.</li>
+                    <li>IOW use ng-model to receive data and ng-bind to display data</li>
+                </ul>
+                <li>AngularJS starts automatically when the web page has loaded.</li>
+                <li>Include the script src angular.min.js</li>
+                <li><b>Unlike JS, angular expressions can be written directly inside HTML</b></li>
+                <li> Add controllers, directives, filters, and more</li>
+            </ul>
+        </div>
+        <br>
+
+
+        <!-- Example -->
+        <br>
+        <h3>Example: Initialising form input field</h3>
+        <hr>
+        <pre><code>ng-init="myCol='green'" & value="\{\{myCol\}\}</code></pre>
+        <p>Change the value of the input field:</p>
+        <div ng-init="myCol='green'">
+            <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Example: Initialising a variable with ng-init and using it with ng-bind</h3>
+        <hr>
+        <pre><code>ng-init="name2='Bilbo'"</code></pre>
+        <div ng-init="name2='Bilbo'">
+            <p>The name is <b ng-bind="name" class="sample-data"><span ng-bind="name2"></span></b></p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>ng-repeat & data-ng-bind="yourName"</h3>
+        <hr>
+        <pre><code>ng-repeat="x in names"</code></pre>
+        <div data-ng-init="yourName='Bilbo'">
+            <p>The name is <b ng-bind="name" class="sample-data"><span data-ng-bind="yourName"></span></b>/p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Example: Using \{\{ \}\} or ng-bind, your choice</h3>
+        <hr>
+        <pre><code>5 + 5 = \{\{ 5 + 5 \}\}</code></pre>
+        <ul>
+            <li>AngularJS expressions can be written inside double braces: {{ expression }}.</li>
+            <li>AngularJS expressions can also be written inside a directive: ng-bind="expression".</li>
+        </ul>
+        <div>
+            <p>My first expression: 5 + 5 = <b ng-bind="name" class="sample-data">{{ 5 + 5 }}</b></p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Example: Using data-ng-bind to make the page valid HTML</h3>
+        <hr>
+        <pre><code>Total in dollar: \{\{ quantity * cost \}\}</code></pre>
+        <div ng-init="quantity=2;cost=5">
+            <p>Total in dollar: <b ng-bind="name" class="sample-data">{{ quantity * cost }}</b></p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Example: Concating two strings together</h3>
+        <hr>
+        <pre><code>\{\{ firstName + " " + lastName \}\}</code></pre>
+        <div ng-init="firstName='Bilbo';lastName='Baggins'">
+            <p>The name is {{ firstName + " " + lastName }}<br>
+                The name is: <b ng-bind="name" class="sample-data"><span
+                    ng-bind="firstName + ' ' + lastName"></span></b>/p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Another concat example</h3>
+        <hr>
+        <pre><code>\{\{ person.firstName + " " + person.lastName \}\}</code></pre>
+        <div ng-init="person={firstName:'Bilbo',lastName:'Doe'}">
+            <p>The name is {{ person.firstName + " " + person.lastName }}</p>
+        </div>
+
+
+        <!-- Example -->
+        <br>
+        <h3>Example: Basic array op</h3>
+        <hr>
+        <pre><code>"points=[1,15,19,2,40]" & \{\{ points[2] \}\}</code></pre>
+        <div ng-init="points=[1,15,19,2,40]">
+
+            <p>The third result is {{ points[2] }}</p>
+            <p>The fourth result is <span ng-bind="points[3]"></span></p>
+        </div>
+
+        <!-- Example: Basic input & output -->
+        <br>
+        <h3> Example: Basic input & output</h3>
+        <hr>
+        <pre><code>ng-model="name", ng-bind="name"</code></pre>
+        <div>
+            <p>Type here : <input type="text" ng-model="name"></p>
+            Output here: <b ng-bind="name" class="sample-data"></b>
+        </div>
+        <br>
+
+        <!-- Example: Simple Controller -->
+        <br>
+        <h3>Example: Concatenate input </h3>
+        <hr>
+        <pre><code>ng-controller</code></pre>
+        <div ng-controller="simplePersonCtrl">
+            First Name: <input type="text" ng-model="firstName"><br>
+            Last Name: <input type="text" ng-model="lastName"><br>
+            <br>
+            Full Name: <b class="sample-data">{{firstName + " " + lastName}}</b>
+        </div>
+        <br>
+
+        <!-- Example: Controller with function -->
+        <br>
+        <h3>Example: Display function call result</h3>
+        <hr>
+        <pre><code>\{\{fullName()\}\}</code></pre>
+        <div ng-controller="personCtrl">
+            First Name: <input type="text" ng-model="firstName"><br>
+            Last Name: <input type="text" ng-model="lastName"><br>
+            <br>
+            Full Name: <b class="sample-data">{{fullName()}}</b>
+        </div>
+
+        <!-- Example: Controller with function -->
+        <br>
+        <h3>Example: Initialise variable with control and display it inline</h3>
+        <hr>
+        <pre><code>$scope.carName="Shire Motors" & \{\{carName\}\}</code></pre>
+        <div ng-controller="carCtrl">Bilbo's car built by: <b class="sample-data">{{carName}}</b></div>
+
+        <!-- Example -->
+        <br>
+        <h3>Example: Initialise variable with control and display it inline</h3>
+        <hr>
+        <pre><code>$scope.name = "Gandalf the Grey & \{\{name\}\}";</code></pre>
+
+        <div ng-controller="gandalfCtrl">
+            <input ng-model="name">
+            <p>My name is <b class="sample-data">{{name}}</b></p>
+        </div>
+
+        <!-- Example: Repeat (Iteration) -->
+        <br>
+        <h3>Example: Using ng-repeat to turn a collection into an UL</h3>
+        <hr>
+        <pre><code>ng-repeat="x in names"</code></pre>
+        <div ng-controller="hobbitsCtrl">
+            <ul>
+                <li ng-repeat="x in names"><b class="sample-data">{{x}}</b></li>
+            </ul>
+        </div>
+
+        <!-- Example: Scope -->
+        <br>
+        <h3>Example: ng-controller & scope</h3>
+        <hr>
+        <pre><code>ng-repeat="x in names"</code></pre>
+        <p>The rootScope's favourite color:</p>
+        <p class="sample-data">{{color}}</p>
+
+        <div ng-controller="scopeCtrl">
+            <p>The scope of the controller's favourite color:</p>
+            <p style="color:hotpink">{{color}}</p>
+        </div>
+        <p>The rootScope's favourite color is still:</p>
+        <p class="sample-data">{{color}}</p>
+
+
+        <!-- Example -->
+        <br>
+        <h3>Filters: uppercase & lowercase</h3>
+        <hr>
+        <pre><code>\{\{ firstName | uppercase \}\} & \{\{ lastName | lowercase \}\}</code></pre>
+        <div ng-controller="upcaseCtrl">
+            <p>The name is <b class="sample-data">{{ firstName | uppercase }}</b></p>
+            <p>The name is <b class="sample-data">{{ lastName | lowercase }}</b></p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Filters: orderBy</h3>
+        <hr>
+        <pre><code>x in names | orderBy:'country'</code></pre>
+        <div ng-controller="dbCtrl">
+            <p>Looping with objects:</p>
+            <ul>
+                <li ng-repeat="x in names | orderBy:'country'">
+                    <b class="sample-data">{{x.name}}</b>&nbsp;<b class="sample-data-secondary">{{x.country}}</b>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Filters: currency</h3>
+        <hr>
+        <pre><code>\{\{ price | currency \}\}</code></pre>
+        <div ng-app="myApp" ng-controller="costCtrl">
+            <p>Price: <b class="sample-data">{{ price | currency }}</b> (Castar in Middle Earth)</p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Filters: Only country that contain E</h3>
+        <hr>
+        <pre><code>x in names | filter : 'e'</code></pre>
+        <div ng-controller="countryFilterCtrl">
+            <ul>
+                <li ng-repeat="x in names | filter : 'e'">
+                    <b class="sample-data">{{ x }}</b>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Example: Filter user input -->
+        <br>
+        <h3>Filter user input</h3>
+        <hr>
+        <pre><code>ng-repeat="x in names | filter : test</code></pre>
+        <div ng-controller="dynamicFilterCtrl">
+            <p><input type="text" ng-model="test"></p>
+            <ul>
+                <li ng-repeat="x in names | filter : test">
+                    <b class="sample-data">{{ x }}</b>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Example: location service and page URL -->
+        <br>
+        <h3>Uses $location service to find the page URL</h3>
+        <hr>
+        <pre><code>app.controller('myUrlCtrl', function($scope, $location) & $location.absUrl();</code></pre>
+        <div ng-controller="myUrlCtrl">
+            <p>The url of this page is:</p>
+            <p><b class="sample-data">{{myUrl}}</b></p>
+        </div>
+
+        <!-- Example: -->
+        <br>
+        <h3>Uses BOM (Browser Object Model) to find the page URL</h3>
+        <hr>
+        <i>Better to use Angular services rather than the BOM</i>
+        <h3>Again but uses window.location [Better to use Angular services]</h3>
+        <pre><code>window.location</code></pre>
+        <div ng-app="myApp" ng-controller="myUrlCtrl2">
+            <p>The url of this page is:</p>
+            <h3><b class="sample-data">{{myUrl}}</b></h3>
+        </div>
+
+        <!-- Example: HTTP Service -->
+        <br>
+        <h3><b>Important:</b> Using the http service</h3>
+        <hr>
+        <pre><code>
+            function ($scope, $http) {
+                $http.get("welcome.html").then(function (response) {
+                $scope.myWelcome = response.data;
+                ...
+            }
+        </code></pre>
+        <div ng-controller="myHttpCtrl">
+            <p>Today's welcome message is:</p>
+            <p><b class="sample-data">{{myWelcome}}</b></p>
+        </div>
+
+        <!-- Example: HTTP Service -->
+        <br>
+        <h3><b>Important:</b> Using the http service</h3>
+        <hr>
+        <pre><code>
+            function ($scope, $http) {
+                $http.get("welcome.html").then(function (response) {
+                $scope.myWelcome = response.data;
+                ...
+            }
+        </code></pre>
+        <div ng-controller="myHttpCtrl2">
+            <p>Today's welcome message is:</p>
+            <h1><b class="sample-data">{{myUrl}}{{myWelcome}}</b></h1>
+        </div>
+
+        <!-- Example: HTTP Service & JSON -->
+        <br>
+        <h3>HTTP & JSON</h3>
+        <hr>
+        <pre><code>
+                app.controller('customersCtrl', function ($scope, $http) {
+                $http.get("https://www.w3schools.com/angular/customers.php").then(function (response) {
+                    // { "records":[ {"Name":"Alfreds Futterkiste","City":"Berlin","Country":"Germany"}, {"Name":
+                    $scope.myData = response.data.records; // "records" is name of array in the JSON
+                });
+        </code></pre>
+        <div ng-controller="customersCtrl">
+            <ul>
+                <li ng-repeat="x in myData">
+                    <b class="sample-data">{{ x.Name + ', ' + x.Country }}</b>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Example: HTTP, JSON, TABLES -->
+        <br>
+        <h3>HTTP & JSON & Formatted Table</h3>
+        <pre><code>ng-repeat="x in myData"</code></pre>
+        <hr>
+        <div ng-controller="customersCtrl">
+            <table>
+                <tr ng-repeat="x in myData">
+                    <td><b class="sample-data">{{ x.Name }}</b></td>
+                    <td><b class="sample-data-secondary">{{ x.Country }}</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Example: HTTP, JSON, TABLES, ORDER BY -->
+        <br>
+        <h3>HTTP & JSON & Tables & OrderBy Country</h3>
+        <hr>
+        <pre><code>x in myData | orderBy : 'Country'</code></pre>
+        <div ng-controller="customersCtrl">
+            <table>
+                <tr ng-repeat="x in myData | orderBy : 'Country'">
+                    <td><b class="sample-data">{{ x.Name }}</b></td>
+                    <td><b class="sample-data-secondary">{{ x.Country }}</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Example: HTTP, JSON, TABLES, orderBy, uppercase -->
+        <br>
+        <h3>HTTP & JSON & Tables, orderBy Country & uppercase</h3>
+        <hr>
+        <pre><code>ng-repeat="x in myData | orderBy : 'Country' & {{ x.Country | uppercase}}</code></pre>
+        <div ng-controller="customersCtrl">
+            <table>
+                <tr ng-repeat="x in myData | orderBy : 'Country'">
+                    <td>{{$index + 1}}</td>
+                    <td><b class="sample-data">{{ x.Name }}</b></td>
+                    <td><b class="sample-data-secondary">{{ x.Country | uppercase}}</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Example: Select -->
+        <br>
+        <h3>Selector</h3>
+        <hr>
+        <pre><code>ng-options="x.Country for x in myData"</code></pre>
+        <div ng-controller="customersCtrl">
+            Select:
+            <select ng-model="selectedName" ng-options="x.Country for x in myData">
+            </select>
+        </div>
+
+        <!-- Example: Selecting a value -->
+        <!-- In a key value pair, it always returns the selected value -->
+        <br>
+        <h3>Selector & Display value chosen</h3>
+        <hr>
+        <div ng-controller="customersCtrl">
+            <p>Select a person</p>
+            <select ng-model="selectedPerson" ng-options="x for (x,y) in myData">
+            </select>
+            <p>You selected: <b class="sample-data">{{selectedPerson.Name}}</b></p>
+        </div>
+
+
+        <!-- Example -->
+        <br>
+        <h3>SQL: Selecting data from SQL database</h3>
+        <hr>
+        <div ng-controller="customersCtrlSql">
+            <table>
+                <tr ng-repeat="x in names">
+                    <td><b class="sample-data">{{ x.Name }}</b></td>
+                    <td><b>{{ x.Country }}</b></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Example: ng-disabled -->
+        <br>
+        <h3>Using ng-disabled to disable a button</h3>
+        <hr>
+        <pre><code>button ng-disabled="mySwitch"</code></pre>
+        <div ng-app="" ng-init="mySwitch=true">
+            <p>
+                <button ng-disabled="mySwitch">Click Me!</button>
+            </p>
+            <p>
+                <input type="checkbox" ng-model="mySwitch"/>Button
+            </p>
+            <p>
+                Disabled? <b class="sample-data">{{ mySwitch }}</b>
+            </p>
+        </div>
+
+
+        <!-- Example: ng-disabled -->
+        <br>
+        <h3>Using ng-show to show or hide paragraph</h3>
+        <hr>
+        <pre><code>p ng-show=mySwitch==true</code></pre>
+        <div>
+            <p ng-show=mySwitch==true><b class="sample-data">I am visible.</b></p>
+            <input type="checkbox" ng-model="mySwitch"/>Button
+        </div>
+
+        <!-- Example: ng-mousemove -->
+        <br>
+        <h3>Using ng-mousemove to implement a simple counter</h3>
+        <hr>
+        <pre><code>h1 ng-mousemove="count = count + 1"</code></pre>
+        <div ng-controller="myMouseMoveCtrl">
+            <p ng-mousemove="count = count + 1"><b class="sample-data">Mouse over me!</b></p>
+            <p><b class="sample-data-secondary">{{ count }}</b></p>
+        </div>
+
+        <!-- Example: ng-mouseclick -->
+        <br>
+        <h3>Using ng-mouseclick to implement a simple counter</h3>
+        <hr>
+        <pre><code>p ng-click="count = count + 1"</code></pre>
+        <div ng-controller="myMouseMoveCtrl">
+            <p ng-click="count = count + 1"><b class="sample-data">Click on me!</b></p>
+            <h2>{{ count }}</h2>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Using ng-mousemove to show coordinates</h3>
+        <hr>
+        <pre><code>ng-mousemove="myFunc($event)" & Coordinates: {{x + ', ' + y}}<</code></pre>
+        <div ng-controller="myMouseMoveCtrl2">
+            <h1 ng-mousemove="myFunc($event)"><b class="sample-data">Mouse Over Me!</b></h1>
+            <p><b class="sample-data-secondary">Coordinates: {{x + ', ' + y}}</b></p>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Using a form & ng-model to bind the data</h3>
+        <hr>
+        <pre><code>input type="text" ng-model="firstname"<</code></pre>
+        <div ng-controller="formCtrl">
+            <form>
+                First Name: <input type="text" ng-model="firstname">
+                You type: <b class="sample-data">{{firstname}}</b>
+            </form>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Radio buttons and conditional using ng-switch & ng-switch-when</h3>
+        <hr>
+        <pre><code>ng-switch="myVar" ng-switch-when="hobbits"</code></pre>
+        <form>
+            Pick a topic:
+            <input type="radio" ng-model="myVar" value="hobbits">Hobbits
+            <input type="radio" ng-model="myVar" value="dwarfs">Dwarfs
+            <input type="radio" ng-model="myVar" value="elves">Elves
+        </form>
+        <div ng-switch="myVar">
+            <div ng-switch-when="hobbits">
+                <p><b class="sample-data">Hobbits</b></p>
+                <p><b class="sample-data-secondary">In the shire</b></p>
+            </div>
+            <div ng-switch-when="dwarfs">
+                <p><b class="sample-data">Dwarfs</b></p>
+                <p><b class="sample-data-secondary">In a cave</b></p>
+            </div>
+            <div ng-switch-when="elves">
+                <p><b class="sample-data">Elves</b></p>
+                <p><b class="sample-data-secondary">Up a tree</b></p>
+            </div>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Select drop down and conditional using ng-switch & ng-switch-when</h3>
+        <hr>
+        <pre><code>ng-switch="myVar" ng-switch-when="hobbits"</code></pre>
+        <form>
+            Select a topic:
+            <select ng-model="myVar">
+                <option value="">
+                <option value="hobbits">hobbits
+                <option value="dwarfs">dwarfs
+                <option value="elves">elves
+            </select>
+        </form>
+
+        <div ng-switch="myVar">
+            <div ng-switch-when="hobbits">
+                <p><b class="sample-data">Hobbits</b></p>
+                <p><b class="sample-data-secondary">In the shire</b></p>
+            </div>
+            <div ng-switch-when="dwarfs">
+                <p><b class="sample-data">Dwarfs</b></p>
+                <p><b class="sample-data-secondary">In a cave</b></p>
+            </div>
+            <div ng-switch-when="elves">
+                <p><b class="sample-data">Elves</b></p>
+                <p><b class="sample-data-secondary">Up a tree</b></p>
+            </div>
+        </div>
+
+        <!-- Example -->
+        <br>
+        <h3>Using required & valid</h3>
+        <hr>
+        <pre><code>ng-switch="myVar" ng-switch-when="hobbits"</code></pre>
+        <p>Try writing in the input field:</p>
+        <form name="myForm">
+            <input name="myInput" ng-model="myInput" required>
+        </form>
+        <p>The input's valid state is:</p>
+        <h1><p><b class="sample-data">{{myForm.myInput.$valid}}</b></h1>
+
+
+        <!-- Example -->
+        <br>
+        <h3>Using touch, untouched in a form</h3>
+        <hr>
+        <pre><code>{{myForm2.myInput2.$touched}}</code></pre>
+        <form name="myForm2">
+            <input name="myInput2" ng-model="myInput2" type="email">
+        </form>
+        <p>touched?</p>
+        <h1><p><b class="sample-data">{{myForm2.myInput2.$touched}}</b></h1>
+        <p>untouched?</p>
+        <h1><p><b class="sample-data">{{myForm2.myInput2.$untouched}}</b></h1>
+
+
+        <!-- Example -->
+        <br>
+        <h3>Uppercase, Lowercase, isString, isNumber</h3>
+        <hr>
+        <div ng-app="myApp" ng-controller="myUpDown">
+            <p>to upper:
+            <p><b class="sample-data">{{ x1 }}</b></p>
+            <p>to lower:
+            <p><b class="sample-data">{{ x2 | lowercase}}</b></p>
+            <p>is string "{{x1}}":
+            <p><b class="sample-data">{{ x3 }}</b></p>
+            <p>is number "{{x1}}":
+            <p><b class="sample-data">{{ x4 }}</b></p>
+        </div>
+
+        <!--
+        Warning: Controllers lie beyond here...
+
+        Must use a single script tag to define the controllers
+        [Otherwise they stop functioning]
+        -->
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('simplePersonCtrl', function ($scope) {
+                $scope.firstName = "Bilbo";
+                $scope.lastName = "Baggins";
+            });
+            app.controller('personCtrl', function ($scope) {
+                $scope.firstName = "Frodo";
+                $scope.lastName = "Baggins";
+                $scope.fullName = function () {
+                    return $scope.firstName + " " + $scope.lastName;
+                };
+            });
+            app.controller('carCtrl', function ($scope) {
+                $scope.carName = "Shire Motors";
+            });
+            app.controller('gandalfCtrl', function ($scope) {
+                $scope.name = "Gandalf the Grey";
+            });
+            app.controller('hobbitsCtrl', function ($scope) {
+                $scope.names = ["Bilbo", "Frodo", "Merry", "Pippin"];
+            });
+            app.run(function ($rootScope) {
+                $rootScope.color = 'Teal';
+            });
+            app.controller('scopeCtrl', function ($scope) {
+                $scope.color = "Hot Pink";
+            });
+            app.controller('upcaseCtrl', function ($scope) {
+                $scope.firstName = "Merry";
+                $scope.lastName = "Took";
+            });
+            app.controller('dbCtrl', function ($scope) {
+                $scope.names = [
+                    {name: 'Frodo', country: 'Shire'},
+                    {name: 'Bilbo', country: 'Shire'},
+                    {name: 'Merry', country: 'Shire'},
+                    {name: 'Gandlaf', country: 'Valinor'},
+                    {name: 'Aegnor', country: 'Lindor'},
+                    {name: 'Finwe', country: 'Lindor'},
+                    {name: 'Idril', country: 'Lindor'},
+                    {name: 'Gollum', country: 'Gladden Fields'},
+                    {name: 'Gimli', country: 'Ered Luin'}
+                ];
+            });
+            app.controller('costCtrl', function ($scope) {
+                $scope.price = 36;
+            });
+            app.controller('countryFilterCtrl', function ($scope) {
+                $scope.names = ["Shire", "Mordor", "Blue Mountains", "Iron Hills"];
+            });
+            app.controller('dynamicFilterCtrl', function ($scope) {
+                $scope.names = [
+                    'Bilbo',
+                    'Frodo',
+                    'Merry',
+                    'Sam',
+                    'Pippin',
+                    'Galdalf',
+                    'Gimli',
+                    'Sauramon',
+                    'Legolas'
+                ];
+            });
+            app.controller('myUrlCtrl', function ($scope, $location) {
+                $scope.myUrl = $location.absUrl();
+            });
+            app.controller('myUrlCtrl2', function ($scope) {
+                $scope.myUrl = window.location;
+            });
+            app.controller('myHttpCtrl', function ($scope, $http) {
+                $http.get("welcome.html").then(function (response) {
+                    $scope.myWelcome = response.data;
+                });
+            });
+            app.controller('myHttpCtrl2', function ($scope, $http) {
+                $http({
+                    method: "GET",
+                    url: "notgoingtobefound.html"
+                }).then(function mySuccess(response) { // then arg1
+                    $scope.myWelcome = response.data;
+                }, function myError(response) { // then arg2
+                    $scope.myWelcome = response.statusText;
+                });
+            });
+            app.controller('customersCtrl', function ($scope, $http) {
+                $http.get("https://www.w3schools.com/angular/customers.php").then(function (response) {
+                    // { "records":[ {"Name":"Alfreds Futterkiste","City":"Berlin","Country":"Germany"}, {"Name":
+                    $scope.myData = response.data.records; // "records" is name of array in the JSON
+                });
+            });
+            app.controller('customersCtrlSql', function ($scope, $http) {
+                $http.get("https://www.w3schools.com/angular/customers_sql.aspx")
+                    .then(function (response) {
+                        $scope.names = response.data.records;
+                    });
+            });
+            app.controller('myMouseMoveCtrl', function ($scope) {
+                $scope.count = 0;
+            });
+            app.controller('myMouseMoveCtrl2', function ($scope) {
+                $scope.myFunc = function (myE) {
+                    $scope.x = myE.clientX;
+                    $scope.y = myE.clientY;
+                }
+            });
+            app.controller('formCtrl', function ($scope) {
+                $scope.firstname = "Bilbo";
+            });
+            app.controller('myUpDown', function ($scope) {
+                $scope.x1 = angular.uppercase("bilbo");
+                $scope.x2 = "BAGGINS";
+                $scope.x3 = angular.isString($scope.x1);
+                $scope.x4 = angular.isNumber($scope.x1);
+            });
+        </script>
+    </div>
+</div>
+</body>
+</html>
+
+

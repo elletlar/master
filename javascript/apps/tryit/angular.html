@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <title>Angular Example</title>
+</head>
+<body>
+
+<!-- Example -->
+<hr>
+<div ng-controller="personCtrl">
+
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{fullName()}}
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('personCtrl', function ($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+        $scope.fullName = function () {
+            return $scope.firstName + " " + $scope.lastName;
+        };
+    });
+</script>
+
+
+<!-- Example -->
+<p>Change the value of the input field:</p>
+
+<div ng-init="myCol='lightblue'">
+    <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
+</div>
+
+
+
+<!-- Example -->
+<hr>
+<code>ng-init="name='John'"</code>
+<h3> Example: Initialising a variable</h3>
+<div ng-init="name2='John'">
+    <p>The name is <span ng-bind="name2"></span></p>
+</div>
+
+<!-- Example -->
+<hr>
+<code>ng-init="yourName='John'"</code>
+<h3> Example: Initialising a variable</h3>
+<div data-ng-init="yourName='John'">
+    <p>The name is <span data-ng-bind="yourName"></span></p>
+</div>
+<footer>
+    <p>Use "data-ng" instead of "ng" to make the page valid HTML</p>
+</footer>
+
+<!-- Example -->
+<ul>
+    <li>AngularJS expressions can be written inside double braces: {{ expression }}.</li>
+    <li>AngularJS expressions can also be written inside a directive: ng-bind="expression".</li>
+</ul>
+<div>
+    <p>My first expression: 5 + 5 = {{ 5 + 5 }}</p>
+</div>
+
+<!-- Example -->
+<hr>
+<h3> Example: Numbers: Multiply</h3>
+<code>quantity=2;cost=5</code>
+<div ng-init="quantity=2;cost=5">
+    <p>Total in dollar: {{ quantity * cost }}</p>
+</div>
+
+<!-- Example -->
+<hr>
+<h3> Example: Strings: Concat</h3>
+<code>ng-init="firstName='John';lastName='Doe'"</code>
+<div ng-init="firstName='John';lastName='Doe'">
+    <p>The name is {{ firstName + " " + lastName }}<br>
+        The name is <span ng-bind="firstName + ' ' + lastName"></span></p>
+</div>
+
+<!-- Example -->
+<hr>
+<h3> Example: Objects</h3>
+<code>person={firstName:'John',lastName:'Doe'}</code>
+<div ng-init="person={firstName:'John',lastName:'Doe'}">
+    <p>The name is {{ person.firstName + " " + person.lastName }}</p>
+</div>
+
+
+<!-- Example -->
+<hr>
+<h3> Example: Arrays</h3>
+<h6> Angular arrays are similar to JS arrays</h6>
+<code>points=[1,15,19,2,40]</code>
+<div ng-init="points=[1,15,19,2,40]">
+
+    <p>The third result is {{ points[2] }}</p>
+    <p>The fourth result is <span ng-bind="points[3]"></span></p>
+
+</div>
+
+<!-- Example: Controller
+<div ng-controller="myCtrl">
+    {{ firstName + " " + lastName }}
+</div>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function($scope) {
+        $scope.firstName = "Bilbo";
+        $scope.lastName = "Baggins";
+});
+</script>
+-->
+
+<!-- Example: Directive
+<div test-directive>Text inside the div</div>
+<script>
+    var app = angular.module("myApp", []);
+    app.directive("testDirective", function() {
+        return {
+            template : "I was made in a directive constructor!"
+        };
+    });
+</script>
+-->
+
+<!-- Example
+<div ng-controller="myCtrl2">
+    {{ firstNameExt + " " + lastNameExt }}
+    hello
+</div>
+<script src="myApp.js"></script>
+<script src="myCtrl.js"></script>
+-->
+
+
+<!-- Example
+<div ng-controller="myCtrl">
+    {{ firstNameExt + " " + lastNameExt }}
+</div>
+<script>
+    var app = angular.module("myApp", []);
+    app.controller("myCtrl", function($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+    });
+</script>
+<p>It is recommended that you load the AngularJS library either in the HEAD or at the start of the BODY.</p>
+-->
+
+<p>
+    The ng - app directive initializes an AngularJS application.<br>
+
+    The ng-init directive initializes application data.<br>
+
+    The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.<br>
+
+    { { blah } } is an example of data binding<br>
+
+    ng-repeat is like a foreach loop<br>
+</p>
+
+<!-- Example -->
+<div ng-init="firstName='John'">
+    <p>Declaring a hint name using ng-init: <input type="text" ng-model="firstName"></p>
+    <p>Displaying the name you're typing using ng-model on the input: {{ firstName }}</p>
+</div>
+
+<!-- Example: Data Binding {{}} -->
+<div ng-init="quantity=1;price=5">
+
+    Quantity: <input type="number" ng-model="quantity">
+    Costs: <input type="number" ng-model="price">
+
+    Total in dollar: {{ quantity * price }}
+
+</div>
+
+<!-- Example -->
+<div ng-init="names=['Bilbo','Frodo','Sam']">
+    <p>Looping with ng-repeat:</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{ x }}
+        </li>
+    </ul>
+</div>
+
+<!-- Example -->
+<div ng-init="names=[
+    {name:'James',country:'USA'},
+    {name:'Mark',country:'England'},
+    {name:'Liam',country:'Ireland'}]">
+    <p>Looping with objects:</p>
+    <ul>
+        <li ng-repeat="x in names">
+            {{ x.name + ', ' + x.country }}
+        </li>
+    </ul>
+</div>
+
+<!-- Example
+<test-directive></test-directive>
+<script>
+    var app = angular.module("", []);
+    app.directive("testDirective", function() {
+        return {
+            template : "<pre>Text made by a directive!</pre>"
+        };
+    });
+</script>
+-->
+
+<!-- Example
+<hr>
+<div ng-controller="myCtrl3">
+    Name: <input ng-model="name3">
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl3', function($scope) {
+        $scope.name3 = "John Doe";
+    });
+</script>
+<p>Use the ng-model directive to bind the value of the input field to a property made in the controller.</p>
+-->
+
+<!-- Example
+<hr>
+<p>Change the name inside the input field, and you will see the name in the header changes accordingly.</p>
+<div ng-controller="myCtrl5">
+    Name: <input ng-model="name5">
+    <h1>You entered: {{name5}}</h1>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl5', function($scope) {
+            $scope.name5 = "John Doe";
+        });
+    </script>
+</div>
+-->
+
+<!-- Example -->
+<hr>
+<p>Enter your e-mail address in the input field. AngularJS will display an errormessage if the address is not an
+    e-mail.</p>
+<form name="myForm">
+    Email:
+    <input type="email" name="myAddress" ng-model="text">
+    <span ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span>
+</form>
+
+<!-- Example -->
+<hr>
+<div ng-controller="myCtrl">
+    <input ng-model="firstname">
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.firstname = "John";
+        $scope.lastname = "Doe";
+    });
+</script>
+
+<!-- Example -->
+<hr>
+<p>Change the name inside the input field, and the model data will change automatically, and therefore also the header
+    will change its value.</p>
+<div ng-controller="myCtrl">
+    Name: <input ng-model="firstnamebear">
+    <h1>{{firstnamebear}}</h1>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.firstnamebear = "Poppa";
+        $scope.lastnamebear = "Bear";
+    });
+</script>
+
+<!-- Example -->
+<hr>
+<p>Click on the header to run the "changeName" function.</p>
+<p>This example demonstrates how to use the controller to change model data.</p>
+<div ng-controller="myCtrl">
+    <h1 ng-click="changeName()">{{firstname}}</h1>
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.firstname = "John";
+        $scope.changeName = function () {
+            $scope.firstname = "Jelly";
+        }
+    });
+</script>
+
+<!-- Example
+<hr>
+<div ng-controller="myCtrl">
+
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{firstName + " " + lastName}}
+
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+    });
+</script>
+-->
+
+<!-- Example
+<hr>
+<div ng-controller="personCtrl">
+
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{fullName()}}
+
+</div>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('personCtrl', function($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+        $scope.fullName = function() {
+            return $scope.firstName + " " + $scope.lastName;
+        };
+    });
+</script>
+-->
+
+</div>
+</body>
+</html>
+
+

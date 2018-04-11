@@ -1,0 +1,786 @@
+<!doctype html>
+<a name="top"></a>
+<html class="no-js" lang="en-gb">
+<head>
+    <link rel="stylesheet" href="css/old-school.css">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My HTML sandbox</title>
+    <meta name="description" content="My HTML practise page">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="HTML, CSS, XML, JavaScript">
+    <!-- <meta http-equiv="refresh" content="60;URL=http://localhost:63342/hello-html/index.html"/> -->
+
+</head>
+
+    <body>
+<!-- Button: View Source -->
+<button type="button" onclick="viewSource()">View Source of this Page</button>
+<script>
+    function viewSource() {
+        // Prepare source
+        var source = "<html>";
+        source += document.getElementsByTagName('html')[0].innerHTML;
+        source += "</html>";
+        source = source.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        source = "<pre>" + source + "</pre>";
+
+        // Prepare window
+        var sourceWindow = window.open('', 'Page Source', 'height=800,width=800,scrollbars=1,resizable=1');
+        sourceWindow.document.write(source);
+        sourceWindow.document.close();
+        if (window.focus) {
+            sourceWindow.focus();
+        }
+    }
+</script>
+
+<div class="w3-panel w3-info intro">
+    <p>JavaScript was invented by Brendan Eich in 1995, and
+        became an ECMA standard
+        in 1997.<br>ECMA-262 is the official name of the standard. ECMAScript is the official name of the language.
+    </p>
+</div>
+
+<hr>
+
+<h2>ECMAScript Editions</h2>
+<table cellpadding="5px" class="w3-table-all">
+    <tr>
+        <th align="left">Year</th>
+        <th align="left">Name</th>
+        <th align="left">Description</th>
+    </tr>
+    <tr>
+        <td>1997</td>
+        <td>ECMAScript 1</td><td>First Edition</td>
+    </tr>
+    <tr>
+        <td>1998</td>
+        <td>ECMAScript 2</td><td>Editorial changes only</td>
+    </tr>
+    <tr>
+        <td>1999</td>
+        <td>ECMAScript 3</td><td>Added Regular Expressions &amp; try/catch</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>ECMAScript 4</td><td>Not released</td>
+    </tr>
+    <tr>
+        <td>2009</td>
+        <td>ECMAScript 5</td><td>Added "strict mode" &amp; Added JSON support</td>
+    </tr>
+    <tr>
+        <td>2011</td>
+        <td>ECMAScript 5.1</td><td>Editorial changes</td>
+    </tr>
+    <tr>
+        <td>2015</td>
+        <td>ECMAScript 6</td><td>Added classes and modules</td>
+    </tr>
+    <tr>
+        <td>2016</td>
+        <td>ECMAScript 7</td><td>Added exponential operator (**) &amp; Array.prototype.includes</td>
+    </tr>
+</table>
+
+<!-- Example: Console log -->
+<br>
+<h3><u>Writing to console logs</u></h3>
+<div style="margin-left: 1em;">
+    <code>console.log("Hello Console Log");</code>
+    <script>
+        console.log("Hello Console Log");
+    </script>
+    <br>
+    <i>Tip: Press F12 to see console log output</i>
+</div>
+
+<!-- Example: Updating <p> -->
+<br>
+<h3><u>Updating a <code>P</code> from a <code>button</code> press</u></h3>
+<div style="margin-left: 1em;">
+    <code>onclick='document.getElementById("demo").innerHTML = "Replaced"</code>
+    <span class="sample-data"><p id="ex">Text to be replaced</p></span>
+    <button type="button" onclick='document.getElementById("ex").innerHTML = "Replaced"'>Replace Paragraph Text</button>
+</div>
+
+
+<!-- Example: Updating <p> -->
+<br>
+<h3><u>Changing text colour on a timer</u></h3>
+<div style="margin-left: 1em;">
+    <code>setTimeout("elt.style.color='teal'", i) // 500, 1000, 1500</code>
+    <div id="colorShow" style={background="pink"};>Some text</div>
+    <script LANGUAGE="javascript">
+        var elt = document.getElementById("colorShow");
+        for (var i = 1; i < 100000; i += 2000) {
+            setTimeout("elt.style.color='teal'", i) // 500, 1000, 1500
+            i += 2000;
+            setTimeout("elt.style.color='blue'", i) // 1000, 2000, 3000
+        }
+    </script>
+</div>
+
+<!-- Example: Updating <div> -->
+<br>
+<h3><u>Updating a <code>div</code> from a <code>button</code> press</u></h3>
+<div style="margin-left: 1em;">
+    <code>onclick='document.getElementById("demo").innerHTML = "Replaced"</code>
+    <span class="sample-data"><div id="ex2">More text to be replaced</div></span>
+    <button type="button" onclick='document.getElementById("ex2").innerHTML = "Replaced"'>Replace Div Text</button>
+</div>
+
+<!-- Example: Alert Dialog -->
+<br>
+<br>
+<h3><u>Alert Dialog</u></h3>
+<div style="margin-left: 1em;">
+    <code>onClick= "alert('Button Pressed!')</code>
+    <button TYPE="button" onClick= "alert('Button Pressed!')">Press Me</button>
+</div>
+
+<!-- Example: Date -->
+<br>
+<h3><u>Date</u></h3>
+<div style="margin-left: 1em;">
+    <code>var date = new Date();</code>
+    <p>Today's date is: <span id="date"></span></p>
+    <script LANGUAGE = "Javascript">
+        var date = new Date();
+        document.getElementById('date').innerHTML = date;
+    </script>
+</div>
+
+<!-- Example -->
+<br>
+<h3><u>Updating a <code>div</code> from a <code>button</code> press</u></h3>
+<div style="margin-left: 1em;">
+    <img id="hobbitAvatar" src="https://i.pinimg.com/564x/5c/1f/16/5c1f16ad7866c4f5716c8a25ea0d9f52.jpg" height="150px" width ="150px"/>
+    <br>
+    <button onClick="changeHobbit();">Toggle Hobbits</button>
+</div>
+<script>
+    var bilbo = "https://i.pinimg.com/564x/5c/1f/16/5c1f16ad7866c4f5716c8a25ea0d9f52.jpg";
+    var frodo = "https://img00.deviantart.net/ae87/i/2015/104/e/5/frodo_re_paint_by_beth_gilbert-d8di4jn.jpg";
+
+    function changeHobbit() {
+        var elt = document.getElementById("hobbitAvatar");
+        if (elt.src == bilbo) {
+            elt.src = frodo;
+        } else {
+            elt.src = bilbo;
+        }
+    }
+</script>
+
+<!-- Example: Updating <p> -->
+<div style="margin-left: 1em;">
+    <div id="textShow">GROW ME!</div>
+</div>
+<script>
+    var arr = [0];
+    var fontSize = 1;
+
+    function growText() {
+        var delay = 500;
+        for (var i = 1; i < 256; i++) {
+            var id = setTimeout(doGrow, delay);
+            arr.push(id);
+            delay = delay + 50;
+        }
+    }
+
+    function doGrow() {
+        document.getElementById('textShow').style.fontSize = fontSize.toString() + "px";
+        fontSize++;
+    }
+
+    function cancelGrowText() {
+        for (var i = 0; i < arr.length; i++) {
+            window.clearTimeout(arr[i]);
+        }
+        document.getElementById('textShow').style.fontSize = "15px";
+    }
+</script>
+
+<button onClick="growText();">Grow Text</button>
+<button onClick="cancelGrowText();">Reset Text</button>
+
+<!-- Example: Inserting variable into the DOM -->
+<br>
+<h3><u>Adding a variable to the <abbr title="Document Object Model">DOM</abbr></u></h3>
+<div style="margin-left: 1em;">
+    <code>document.domVariableX = 5;</code>
+    <p id="domVariable"/></p>
+
+    <script>
+        document.domVariableX = 5;
+    </script>
+
+    <script>
+        document.getElementById('domVariable').innerHTML = "The DOM variables equals: " + document.domVariableX;
+    </script>
+</div>
+
+<!-- Example: Hidden & Visible -->
+<br>
+<h3>Hiding a HTML element</u></h3>
+<div style="margin-left: 1em;">
+    <code><ul><li>document.getElementById('hideMe').style.visibility='hidden'"</li>
+        <li>document.getElementById('hideMe').style.display='visible'"</li></ul></code>
+    <p id="hideMe">Text to be hidden when button is clicked</p>
+    <button type="button" onclick="document.getElementById('hideMe').style.visibility='hidden'">Hide</button>
+    <button type="button" onclick="document.getElementById('hideMe').style.visibility='visible'">Show</button>
+</div>
+
+<!-- Example: None & Block -->
+<br>
+<h3>Hiding a HTML element</u></h3>
+<div style="margin-left: 1em;">
+    <code><ul><li>document.getElementById('hideMe').style.display='none'"</li>
+        <li>document.getElementById('hideMe').style.display='block'"</li></ul></code>
+    <p id="hideMe2">Text to be hidden when button is clicked</p>
+    <button type="button" onclick="document.getElementById('hideMe2').style.display='none'">Remove</button>
+    <button type="button" onclick="document.getElementById('hideMe2').style.display='block'">Insert</button>
+</div>
+
+<!-- Example: External Javascript File -->
+<br>
+<h3><u>Hiding a HTML element</u></h3>
+<div style="margin-left: 1em;">
+    <code></code>
+    <script src="js/externalExample.js"></script>
+    <button type="button" onclick="externalFunction();">Call External Function</button>
+</div>
+
+
+<!-- Example: Basic Math -->
+<br>
+<h3><u>Basic Maths</u></h3>
+<div style="margin-left: 1em;">
+    <code>document.getElementById("math").innerHTML = "x + y + z = " + (x + y + z);</code>
+    <p>x = 1, y = 2, z = 3</p>
+    <p id="math"></p>
+    <p id="math2"></p>
+</div>
+<script>
+    math();
+    math2();
+    function math() {
+        var x, y, z;
+        x = 1;
+        y = 2;
+        z = 3;
+        document.getElementById("math").innerHTML =
+            "x + y + z = " + (x + y + z);
+    }
+    function math2() {
+        var x, y, z;
+        x = 1;
+        y = 2;
+        z = 3;
+        document.getElementById("math2").innerHTML =
+            "x * y * z = " + (x * y * z);
+    }
+</script>
+
+<!-- Example: Injecting HTML -->
+<br>
+<h3><u>Injecting HTML</u></h3>
+<div style="margin-left: 1em;">
+    <code>        document.getElementById("inject").innerHTML =
+        "<b><i>Injected bold and italic tags via javascript</b></i>";
+    </code>
+    <p>x = 1, y = 2, z = 3</p>
+    <p id="inject"></p>
+</div>
+<script>
+    inject();
+    function inject() {
+        document.getElementById("inject").innerHTML =
+            "<b><i>Injected bold and italic tags via javascript</b></i>";
+    }
+</script>
+
+<!-- Example: C operators -->
+<br>
+<h3><u>C operators: %, ++, --, +=</u></h3>
+<div style="margin-left: 1em;">
+    <code>var x = 1, y = 2, z = 3; ++x; y += 1; z = z % x;</code>
+    <script>
+        var x1 = 1, y1 = 2, z1 = 3;
+
+        ++x1;
+        y1 += 1;
+        z1 = z1 % x1;
+
+        document.writeln("x = " + x1 + " y = " + y1 + " z = " + z1);
+    </script>
+</div>
+
+<!-- Example: Adding numbers and strings -->
+<br>
+<h3><u>Adding numbers and strings: Understanding promotion</u></h3>
+<div style="margin-left: 1em;">
+    <p id ="numbersStrings"></p>
+</div>
+<script>
+    var x = 5 + 5;
+    var y = "5" + 5;
+    var z = 5 + "5";
+    var zz = 5 + 5 + "5";
+    document.getElementById("numbersStrings").innerHTML = "5 + 5 = " + x + "<br>'5' + 5 = " + y + "<br>5 + '5' = " + z + "<br>5 + 5 + '5' = " + zz;
+</script>
+
+<!-- Example: Adding numbers and strings -->
+<br>
+<h3><u>Several <code>typeof</code> examples</u></h3>
+<div style="margin-left: 1em;">
+    <p id ="typeof"></p>
+<script>
+    document.getElementById("typeof").innerHTML =
+        "'' " + typeof "" + "<br>" +
+        "'Bilbo' " + typeof "Bilbo" + "<br>" +
+        "0 " +typeof 0 + "<br>" +
+        "30 " +typeof 30 + "<br>" +
+        "3.0 " + typeof 3.0 + "<br>" +
+        "null " + typeof null  + "<br>" +
+    "undefined " + typeof undefined + "<br>";
+</script>
+</div>
+
+<!-- Undefined variable -->
+<br>
+<h3><u>The <code>typeof</code>undefined variable is undefined</u></h3>
+<div style="margin-left: 1em;">
+    <script>
+        var xUndefined;
+        document.writeln(typeof xUndeined);
+    </script>
+</div>
+
+<!-- Example: Canvas -->
+<br>
+<h3>Canvas Examples</h3>
+<hr>
+<canvas id="2dCanvas" width="250" height="250">
+    Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script>
+    var delay = 500;
+    for (var j = 0; j < 100; ++j) {
+        setTimeout(canvasF, delay);
+        delay += 200;
+    }
+
+    i = 0;
+    function canvasF() {
+        var c = document.getElementById("2dCanvas");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.strokeStyle = "#FF4500";
+        ctx.strokeRect(i, i, 150, 100);
+        console.log(i);
+    }
+</script>
+
+<!-- Example: Injecting HTML -->
+<br>
+<h3><u>Creating simple javascript object</u></h3>
+<div style="margin-left: 1em;">
+    <p id="demo"></p>
+    <code>var bilbo = {name:"Bilbo", age:"120", race:"Hobbit"};</code>
+    <script>
+        var bilbo = {name: "Bilbo", age: "120", race: "Hobbit"};
+        document.getElementById("demo").innerHTML = bilbo.name + " " + bilbo.age + " " + bilbo.race;
+    </script>
+</div>
+
+
+<!-- Example: Injecting HTML -->
+<br>
+<h3><u>Creating simple javascript object</u></h3>
+<div style="margin-left: 1em;">
+    <p id="demo"></p>
+    <code>var bilbo = {name:"Bilbo", age:"120", race:"Hobbit"};</code>
+    <script>
+        var bilbo = {name: "Bilbo", age: "120", race: "Hobbit"};
+        document.getElementById("demo").innerHTML = bilbo.name + " " + bilbo.age + " " + bilbo.race;
+    </script>
+</div>
+
+
+<!-- Example: Object method call -->
+<br>
+<h3><u>Creating simple javascript object</u></h3>
+<div style="margin-left: 1em;">
+    <p id="hobbitName"></p>
+    <script>
+        var hobbit = {
+            firstName: "Bilbo",
+            lastName: "Baggs",
+            id: 3434,
+
+            fullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        };
+    document.getElementById("hobbitName").innerHTML = hobbit.fullName();
+    </script>
+</div>
+
+<!-- Example: Function wth argument -->
+<br>
+<h3><u>Example: Form with function that takes an argument</u></h3>
+<div style="margin-left: 1em;">
+<script>
+    function showGreeting(txt) {
+        document.getElementById("showGreeting").innerHTML = txt
+    }
+</script>
+<p>
+    When you click on one of the buttons, a function will be called. The function will display the argument that is passed to it.
+</p>
+<p class ="sample-data" id="showGreeting"></p>
+<form>
+    <input type="button" onclick="showGreeting('Good Morning!')" value="Good Morning Bilbo">
+    <input type="button" onclick="showGreeting('Good Evening!')" value="Good Evening Bilbo">
+</form>
+</div>
+
+
+<!-- Example: Element that updates itself -->
+<br>
+<h3><u>Example: Replacing button's own text</u></h3>
+<div style="margin-left: 1em;">
+    <button onclick="this.innerHTML=Date()">The time is?</button>
+</div>
+
+
+<!-- Example: String ops -->
+<br>
+<h3><u>Example: String ops</u></h3>
+<div style="margin-left: 1em;">
+    <code>var pos = str.indexOf("abc");</code>
+    <p id="indexOfTest" class="sample-data"></p>
+    <p id="indexOfTest2" class="sample-data"></p>
+    <p id="indexOfTest3" class="sample-data"></p>
+    <p id="indexOfTest4" class="sample-data"></p>
+    <p id="indexOfTest5" class="sample-data"></p>
+    <p id="indexOfTest6" class="sample-data"></p>
+    <script>
+        var str = "Find abc in here okay";
+        var pos = str.indexOf("abc");
+        document.getElementById("indexOfTest").innerHTML = "index of 'abc' = " + pos;
+
+        pos = str.lastIndexOf("in");
+        document.getElementById("indexOfTest2").innerHTML = "last index of 'in' = " + pos;
+
+        str = str.replace("abc", "def");
+        document.getElementById("indexOfTest3").innerHTML = "after replace we have = " + str;
+
+        str = str.toUpperCase();
+        document.getElementById("indexOfTest4").innerHTML = "after toUpperCase we have = " + str;
+
+        var splits = str.split("A");
+        document.getElementById("indexOfTest5").innerHTML = "split 1 = " + splits[0];
+
+        splits = str.split("A");
+        document.getElementById("indexOfTest6").innerHTML = "split 2 = "  + splits[1];
+
+    </script>
+</div>
+
+
+<!-- Example -->
+<br>
+<h3><u>Example: Cleaning up decimals</u></h3>
+<div style="margin-left: 1em;">
+    <code> document.getElementById("dec2").innerHTML = "0.2 + 0.1 = " + y;
+    </code>
+    <p id="dec1"></p>
+    <p id="dec2"></p>
+    <script>
+        var x = 0.2 + 0.1;
+        document.getElementById("dec1").innerHTML = "0.2 + 0.1 = " + x;
+        var y = (0.2 * 10 + 0.1 * 10) / 10;
+        document.getElementById("dec2").innerHTML = "0.2 + 0.1 = " + y;
+    </script>
+</div>
+
+<!-- Example -->
+<br>
+<h3><u>Example: NaN</u></h3>
+<div style="margin-left: 1em;">
+    <code> document.getElementById("nan").innerHTML = 10 / "foo";
+    </code>
+    <p id="nan"></p>
+
+    <script>
+        document.getElementById("nan").innerHTML = 10 / "foo";
+    </script>
+</div>
+
+
+<!-- Example: PI -->
+<br>
+<h3><u>Example: PI</u></h3>
+<div style="margin-left: 1em;">
+    <code>         document.getElementById("pi").innerHTML = Math.PI;
+
+    </code>
+    <span class="sample-data"><p id="pi"></p></span>
+    <span class="sample-data"><p id="pow"></p></span>
+    <span class="sample-data"><p id="min"></p></span>
+
+    <script>
+        document.getElementById("pi").innerHTML = "pi = " + Math.PI;
+        document.getElementById("pow").innerHTML = "2 ^ 4 = " +  Math.pow(2, 4);
+        document.getElementById("min").innerHTML = "min num is: " + Math.min(432, 234, 123432, 232);
+    </script>
+
+</div>
+
+
+<!-- Example: Conditionals -->
+<br>
+<h3><u>Example: Conditionals</u></h3>
+<div style="margin-left: 1em;">
+
+<button onclick="timeGreeting()">Try it</button>
+
+    <span class="sample-data"><p id="timeGreeting"></p></span>
+
+<script>
+    function timeGreeting() {
+        var greeting;
+        var time = new Date().getHours();
+        if (time < 10) {
+            greeting = "Good morning";
+        } else if (time < 20) {
+            greeting = "Good day";
+        } else {
+            greeting = "Good evening";
+        }
+        document.getElementById("timeGreeting").innerHTML = greeting;
+    }
+</script>
+</div>
+
+
+<!-- Example: Random Link -->
+<br>
+<h3><u>Example: Random Link</u></h3>
+<div style="margin-left: 1em;">
+
+    <p>Generating a random link:</p>
+
+    <script>
+        if (Math.random() < 0.5) {
+            text = "<a href='http://google.com'>Google</a>";
+        } else {
+            text = "<a href='http://ddg.gg'>Duck</a>";
+        }0
+        document.getElementById("randomLink").innerHTML = text;
+    </script>
+</div>
+
+
+
+
+<!-- Example: For In -->
+<br>
+<h3><u>Example: For In</u></h3>
+<div style="margin-left: 1em;">
+    <code>for (x in person)</code>
+    <p id="forIn"></p>
+
+    <script>
+        var txt = "";
+        var person = {fname:"John", lname:"Doe", age:25};
+        var x;
+        for (x in person) {
+            txt += x + " " + person[x] + " ";
+        }
+        document.getElementById("forIn").innerHTML = txt;
+    </script>
+
+</div>
+
+
+<!-- Example: Multiple Line Object -->
+<br>
+<h3><u>Multiple Line Object</u></h3>
+<div style="margin-left: 1em;">
+    <code>        var person = {
+        firstName : "John",
+        lastName  : "Doe",
+        age       : 50,
+        eyeColor  : "blue"
+        };
+    </code>
+    <span class="sample-data"><p id="multiLineObj"/></span>
+
+    <script>
+        var person = {
+            firstName : "John",
+            lastName  : "Doe",
+            age       : 50,
+            eyeColor  : "blue"
+        };
+
+        var str = "";
+        for (var data in person) {
+            str += person[data] + " ";
+        }
+        document.getElementById("multiLineObj").innerHTML = str;
+    </script>
+
+</div>
+
+<!-- Example: Multiple Line Object -->
+<br>
+<h3><u>Multiple Line Object</u></h3>
+<div style="margin-left: 1em;">
+    <p id="typeExamples"></p>
+    <script>
+        var x1 = {};
+        var x2 = "";
+        var x3 = 0;
+        var x4 = false;
+        var x5 = [];
+        var x6 = /()/;
+        var x7 = function(){};
+
+        document.getElementById("typeExamples").innerHTML =
+            "x1: " + typeof x1 + "<br>" +
+            "x2: " + typeof x2 + "<br>" +
+            "x3: " + typeof x3 + "<br>" +
+            "x4: " + typeof x4 + "<br>" +
+            "x5: " + typeof x5 + "<br>" +
+            "x6: " + typeof x6 + "<br>" +
+            "x7: " + typeof x7 + "<br>";
+    </script>
+</div>
+
+<!-- Example: Join -->
+<br>
+<h3><u>Join</u></h3>
+<div style="margin-left: 1em;">
+    <code>document.getElementById("joinDemo").innerHTML = hobbits.join(" * ");</code>
+    <span class="sample-data"><p id="joinDemo"></p></span>
+
+    <script>
+        var hobbits = ["Bilbo", "Frodo", "Sam", "Gandalf"];
+
+        // Join creates strings from array and you can specify a separator: "  *  "
+        document.getElementById("joinDemo").innerHTML = hobbits.join(" * ");
+    </script>
+
+</div>
+
+
+<!-- Example: Pop, Push, Reverse -->
+<br>
+<h3><u>Push, Pop, Reverse: Push and Pop work on the RHS</u></h3>
+<div style="margin-left: 1em;">
+    <code>var hobbit = hobbits.pop();</code>
+    <span class="sample-data"><p id="joinDemo"></p></span>
+
+    <script>
+        var hobbits = ["Bilbo", "Frodo", "Sam", "Gandalf"];
+        document.writeln("normal: " + hobbits.join() + "<br>");
+        hobbits = hobbits.reverse();
+        document.writeln("reversed: " + hobbits.join() + "<br>");
+        var hobbit = hobbits.pop();
+        document.writeln("Popped element: " + hobbit + "<br>");
+        hobbits.push("Merry");
+        document.writeln("Pushed Merry: " + hobbits.join() + "<br>");
+        hobbit = hobbits.shift();
+        document.writeln("Shift: " + hobbit + "<br>");
+        document.writeln("Final State: " + hobbits.join() + "<br>");
+
+    </script>
+</div>
+
+<!-- Example: Sorting array of numbers -->
+<br>
+<h3><u>Sorting array of numbers</u></h3>
+<div style="margin-left: 1em;">
+    <code>points.sort(function(a, b){return b - a});</code>
+    <br>
+    <button onclick="sortFunction()">Sort it</button>
+    <p id="sortSample"></p>
+
+    <script>
+        var points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo").innerHTML = points;
+
+        function sortFunction() {
+            points.sort(function(a, b){return a - b});
+            document.getElementById("sortSample").innerHTML = points;
+        }
+    </script>
+</div>
+
+<!-- Example: Sorting array of numbers -->
+<br>
+<h3><u>Unshift: bizzare name for adding element to an array</u></h3>
+<div style="margin-left: 1em;">
+    <code>hobbits.unshift("Frodo");</code>
+    <br>
+    <button onclick="myFunction()">Add Frodo with unshift func</button>
+
+    <p id="unshift"></p>
+
+    <script>
+        var hobbits = ["Bilbo", "Grandalf", "Sam"];
+        document.getElementById("unshiftDemo").innerHTML = hobbits;
+
+        function myFunction() {
+            hobbits.unshift("Frodo");
+            document.getElementById("unshift").innerHTML = hobbits;
+        }
+    </script>
+</div>
+
+<!-- Example: Replace -->
+<br>
+<h3><u>Replace</u></h3>
+<div style="margin-left: 1em;">
+    <code>hobbits.unshift("Frodo");</code>
+    <br>
+
+
+    <p id="replace">I'm going to Chicago!</p>
+    <button onclick="doReplace()">Try it</button>
+
+    <script>
+        function doReplace() {
+            var text = "I'm going to Chicago"
+            var str = document.getElementById("replace").innerHTML;
+            text = str.replace(/Chicago/i,"The Shire");
+            document.getElementById("replace").innerHTML = text;
+        }
+    </script>
+</div>
+
+<!-- Example: Replace -->
+<br>
+<h3><u>Replace</u></h3>
+<div style="margin-left: 1em;">
+    <code>hobbits.unshift("Frodo");</code>
+    <p>How to loop through all properties in a JSON object.</p>
+    <p id="json1"></p>
+
+    <script>
+        var myObj = { "name":"John", "age":30, "car":null };
+        for (x in myObj) {
+            document.getElementById("json1").innerHTML += x + ":" + myObj[x] + "<br>";
+        }
+    </script>
+</div>
+</body>
+</html>
