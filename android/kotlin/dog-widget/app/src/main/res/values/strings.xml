@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Dog Widget</string>
+
+    <string name="default_not_found">Not Found</string>
+
+    <string name="android_version_title">Android Version</string>
+    <string name="android_version_release_label">Android</string>
+    <string name="android_version_release_value_default">@string/default_not_found</string>
+    <string name="android_version_sdk_label">API</string>
+    <string name="android_version_sdk_value_default">@string/default_not_found</string>
+
+    <string name="device_info_title">Device Information</string>
+    <string name="device_info_brand_label">Brand</string>
+    <string name="device_info_brand_value_default">@string/default_not_found</string>
+    <string name="device_info_manufacturer_label">Manufacturer</string>
+    <string name="device_info_manufacturer_value_default">@string/default_not_found</string>
+    <string name="device_info_marketname_label">Market Name</string>
+    <string name="device_info_marketname_value_default">@string/default_not_found</string>
+    <string name="device_info_model_label">Model</string>
+    <string name="device_info_model_value_default">@string/default_not_found</string>
+    <string name="device_info_codename_label">Code Name</string>
+    <string name="device_info_codename_value_default">@string/default_not_found</string>
+    <string name="device_info_supported_abis_label">Supported ABIs</string>
+    <string name="device_info_supported_abis_value_default">@string/default_not_found</string>
+    <string name="device_info_supported_64bit_abis_label">Supported 64Bit ABIs</string>
+    <string name="device_info_supported_64bit_abis_value_default">@string/default_not_found</string>
+    <string name="device_info_supported_32bit_abis_label">Supported 32Bit ABIs</string>
+    <string name="device_info_supported_32bit_abis_value_default">@string/default_not_found</string>
+
+    <string name="open_source_libraries">Open Source Libraries in Use</string>
+    <string name="android_device_names_text">jaredrummler/AndroidDeviceNames</string>
+    <string name="android_device_names_url">https://github.com/jaredrummler/AndroidDeviceNames</string>
+
+    <string name="title_activity_breed">BreedActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+</resources>

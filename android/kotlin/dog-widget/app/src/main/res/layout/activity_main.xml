@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/btn_breeds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:padding="@dimen/margin_large"
+        android:text="Configure Breeds"
+        android:textSize="@dimen/unit_3x"
+        android:background="?android:attr/listChoiceBackgroundIndicator"
+        />
+
+    <LinearLayout
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="?android:attr/listDivider"/>
+
+    <RelativeLayout
+        android:id="@+id/lyt_alpha"
+        android:background="?android:attr/listChoiceBackgroundIndicator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_large">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Transarency"
+            android:textSize="@dimen/unit_3x"
+
+            />
+
+        <TextView
+            android:id="@+id/txt_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/unit_2x"
+            android:text="100" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="?android:attr/listDivider"/>
+
+    <CheckBox
+        android:id="@+id/chk_rounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="Rounded Corners" />
+
+    <LinearLayout
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="?android:attr/listDivider"/>
+
+</LinearLayout>
+
