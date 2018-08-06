@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * Dog Application
+ *
+ * Intentionally written in Java to practise using Java and Kotlin files together
  */
 public class DogApplication extends Application {
 
@@ -37,6 +39,9 @@ public class DogApplication extends Application {
         }
     }
 
+    /**
+     * Setup the app
+     */
     private void setup() {
         mPrefs.edit().putBoolean(Config.Keys.SETUP, true).apply();
 

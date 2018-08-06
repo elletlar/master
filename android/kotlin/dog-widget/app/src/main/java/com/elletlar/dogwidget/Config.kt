@@ -70,7 +70,7 @@ class Config {
          *     context info in the future, so again a DB is s a better choice
          */
         companion object {
-            /** Boolean: true app has been seutp */
+            /** Boolean: true app has been setup */
             const val SETUP = "setup"
 
 
@@ -97,10 +97,10 @@ class Config {
             /** Default value for rounded */
             const val DEFAULT_ROUNDED =  true
 
-            /** Determines how much can be seen underneath the widget */
+            /** Determines how much can be seen underneath the widget: 0 Transparent to 255 Opaque */
             const val ALPHA = "alpha"
-            /** */
-            const val DEFAULT_ALPHA = 128 // 0 [Transparent] to 255 [Opaque]
+            /** The default value for the transparency */
+            const val DEFAULT_ALPHA = 128
 
 
             // Key that store all subBreeds for a breed
@@ -113,7 +113,10 @@ class Config {
                 return "$PREFIX_SELECTED-$subBreed"
             }
 
+            /** The current list of available image URLs */
             const val CURRENT_IMAGE_URLS = "current_image_urls"
+
+            // TODO: These methods could be moved to a util class or better yet replace with retrofit
 
             /**
              * Save list into shared preferences as a JSONArray
