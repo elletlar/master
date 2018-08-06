@@ -380,14 +380,17 @@ class BreedActivity : ExpandableListActivity() {
             return view
         }
 
+        // getChildrenCount
         override fun getChildrenCount(groupPosition: Int): Int {
             return mSubBreedArray[groupPosition].size
         }
 
+        // hasStableIds
         override fun hasStableIds(): Boolean {
             return false
         }
 
+        // isChildSelectable
         override fun isChildSelectable(groupPosition: Int, childPosition: Int): Boolean {
             return true
         }
