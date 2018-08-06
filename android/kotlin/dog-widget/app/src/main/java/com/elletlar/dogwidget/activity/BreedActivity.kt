@@ -95,10 +95,10 @@ class BreedActivity : ExpandableListActivity() {
             showNoDataView(true)
         }
         val fetch = findViewById<Button>(R.id.btn_fetch)
-        fetch.setOnClickListener(View.OnClickListener {
-            updateBreeds();
+        fetch.setOnClickListener({
+            updateBreeds()
             // Test
-            mPrefs.edit().putStringSet(Config.Keys.ALL_BREEDS, HashSet<String>()).apply();
+            mPrefs.edit().putStringSet(Config.Keys.ALL_BREEDS, HashSet<String>()).apply()
         })
 
         // Breed click
@@ -149,15 +149,15 @@ class BreedActivity : ExpandableListActivity() {
     // --- Breed manipulation
 
     /**
-     * Remove Selected Breed
+     * Add the Selected Breed
      *
      * Removes a breed from the selection list in shared preferences
      */
-    private fun removeSelectedBreed(breed : String) {
+    private fun addSelectedBreed(breed : String) {
         val selectedBreeds =
-            mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
-        if (selectedBreeds.contains(breed)) {
-            selectedBreeds.remove(breed)
+                mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
+        if (!selectedBreeds.contains(breed)) {
+            selectedBreeds.add(breed)
             mPrefs.edit().putStringSet(Config.Keys.ALL_BREEDS_SELECTED, selectedBreeds).apply()
         }
     }
@@ -167,11 +167,11 @@ class BreedActivity : ExpandableListActivity() {
      *
      * Removes a breed from the selection list in shared preferences
      */
-    private fun addSelectedBreed(breed : String) {
+    private fun removeSelectedBreed(breed : String) {
         val selectedBreeds =
-                mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
-        if (!selectedBreeds.contains(breed)) {
-            selectedBreeds.add(breed)
+            mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
+        if (selectedBreeds.contains(breed)) {
+            selectedBreeds.remove(breed)
             mPrefs.edit().putStringSet(Config.Keys.ALL_BREEDS_SELECTED, selectedBreeds).apply()
         }
     }
