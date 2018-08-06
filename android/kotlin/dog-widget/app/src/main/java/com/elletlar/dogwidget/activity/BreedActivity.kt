@@ -49,7 +49,6 @@ class BreedActivity : ExpandableListActivity() {
     /** The view used when there is no breed information available */
     lateinit var mNoData  : View
 
-
     /**
      * Updates the breed list from shared preferences if it is changed by the service.
      *
@@ -68,6 +67,7 @@ class BreedActivity : ExpandableListActivity() {
             }
         }
     }
+
 
     // --- Lifecycle Methods
 
@@ -148,7 +148,6 @@ class BreedActivity : ExpandableListActivity() {
         applicationContext.startService(serviceIntent)
     }
 
-
     // --- Breed manipulation
 
     /**
@@ -172,12 +171,13 @@ class BreedActivity : ExpandableListActivity() {
      */
     private fun removeSelectedBreed(breed : String) {
         val selectedBreeds =
-            mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
+                mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
         if (selectedBreeds.contains(breed)) {
             selectedBreeds.remove(breed)
             mPrefs.edit().putStringSet(Config.Keys.ALL_BREEDS_SELECTED, selectedBreeds).apply()
         }
     }
+
 
     // --- Sub Breed Manipulation
 
@@ -260,11 +260,10 @@ class BreedActivity : ExpandableListActivity() {
             temp.sort()
             mSubBreedArray += temp
         }
-
    }
 
     /**
-     *
+     * Build up a hash of the selections from the data stored in shared preferences
      */
     private fun storedDataToSelectionHash() {
         val breedList = mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
@@ -281,7 +280,9 @@ class BreedActivity : ExpandableListActivity() {
         }
     }
 
-    // --- Adapter
+    /**
+     * Expandable list adapter for Breeds and Sub breeds
+     */
     inner class ExpandableListAdapter(private val myContext: Context) : BaseExpandableListAdapter() {
         override fun onGroupExpanded(groupPosition: Int) {
             super.onGroupExpanded(groupPosition)
@@ -370,9 +371,6 @@ class BreedActivity : ExpandableListActivity() {
             // Text View
             val subBreedTv = view!!.findViewById<TextView>(R.id.txt) as TextView
             subBreedTv.text = subBreed
-
-            // Selection Info
-            // var subBreedMap = selectionMap.get(breed)
 
             // CheckBox
             val checkBox = view.findViewById<CheckBox>(R.id.chk) as CheckBox
