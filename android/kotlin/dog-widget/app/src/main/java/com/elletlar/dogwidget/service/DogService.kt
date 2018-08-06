@@ -29,6 +29,7 @@ class DogService : IntentService("DogService") {
         /** Log Tag */
         private const val TAG = "DogService"
 
+        /** 24 Hours in milliseconds */
         private const val HOURS24 = 86400000
 
 
@@ -217,15 +218,15 @@ class DogService : IntentService("DogService") {
         }
     }
 
-    fun putImageUrl(url: String) {
+    /**
+     * Puts the image URL into a JSON array in shared preferences
+     */
+    private fun putImageUrl(url: String) {
         // Load from JSON list in shared preferences
-        var urlList = Config.Keys.getList(applicationContext, Config.Keys.CURRENT_IMAGE_URLS)
-        var urlArrayList : ArrayList<String>
-        if (url != null) {
-            urlArrayList = urlList as ArrayList<String>
-        } else {
-            urlArrayList = ArrayList<String>()
-        }
+        val urlList = Config.Keys.getList(applicationContext, Config.Keys.CURRENT_IMAGE_URLS)
+        val urlArrayList : ArrayList<String>
+
+        urlArrayList = urlList as ArrayList<String>
 
 
         if (urlArrayList.size > Config.Urls.MAX_DEFAULT_IMAGES) {
@@ -243,7 +244,7 @@ class DogService : IntentService("DogService") {
     // --- Helpers
 
     /**
-     * Update the widget
+     * Update the widget, forces all instances of the widget to update
      *
      * Set EXTRA_PHOTO_READY, the reasaon for the update
      */
@@ -285,12 +286,18 @@ class DogService : IntentService("DogService") {
         return set
     }
 
+    /**
+     * Gets the pending intent for alarm that periodically updates the widget
+     */
     private fun getAlarmPendingIntent(context : Context) : PendingIntent {
         val i = Intent(context, DogService::class.java)
         i.action = ACTION_UPDATE_PHOTO
         return PendingIntent.getService(context, 0, i, 0)
     }
 
+    /**
+     * Sets an alarm for periodically updating the widget
+     */
     private fun setAlarm(context: Context) {
         val am = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         val pi = getAlarmPendingIntent(context)

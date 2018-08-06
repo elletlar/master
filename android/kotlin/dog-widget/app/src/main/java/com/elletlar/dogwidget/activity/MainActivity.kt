@@ -13,11 +13,18 @@ import android.content.SharedPreferences
 import android.widget.*
 import com.google.firebase.analytics.FirebaseAnalytics
 
+/**
+ * Main Activity: All preferences and options for configuring the dog widget
+ */
 class MainActivity : Activity() {
 
+    /** Shared Preferences */
     private lateinit var mPrefs: SharedPreferences
 
+    /** Firebase analytics */
     private lateinit var mFirebaseAnalytics: FirebaseAnalytics
+
+    // --- Lifecycle Methods
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,19 +59,26 @@ class MainActivity : Activity() {
         roundedCbx.setOnCheckedChangeListener { _, isChecked ->
             mPrefs.edit().putBoolean(Config.Keys.ROUNDED, isChecked).apply()
         }
-
-       // throw RuntimeException()
     }
 
+    // onStart
     override fun onStart() {
         logEvent("on_start")
         super.onStart()
     }
 
+    // --- Helper Methods
+
+    /**
+     * Example of setting a user property on firebase
+     */
     private fun setUserProperty(property : String, value : String) {
         mFirebaseAnalytics.setUserProperty(property, value)
     }
 
+    /**
+     * Sample of logging to the Firecase console
+     */
     private fun logEvent(value : String) {
         val b = Bundle()
         b.putString("method_name", value)
@@ -72,7 +86,10 @@ class MainActivity : Activity() {
     }
 
 
-    @SuppressLint("SetTextI18n")
+    /**
+     * Opens dialog that enables user to set the transparency effect on the widget
+     */
+    @SuppressLint("SetTextI18n") // Sample project, no need for internationalisation
     private fun openAlphaDialog(alpha : Int) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Transparency")
@@ -106,6 +123,7 @@ class MainActivity : Activity() {
 
     /**
      * What the API uses:
+     *
      * 0 (transparent) to 255 (opaque)
      */
     private fun toAlpha(percent : Int) : Int {

@@ -17,9 +17,13 @@ import com.elletlar.dogwidget.service.DogService
 import java.util.*
 import kotlin.collections.LinkedHashSet
 
-
+/**
+ * Implements an expandable list view of breed and sub breeds. The widget will only show dogs
+ * from the breeds and sub breeds specified in this activity.
+ */
 class BreedActivity : ExpandableListActivity() {
     companion object {
+        /** Log Tag */
         private const val TAG = "BreedActivity"
     }
 
@@ -44,7 +48,12 @@ class BreedActivity : ExpandableListActivity() {
 
     lateinit var mNoData  : View
 
-    // Reference must be given a variable name due to weak reference defect in Android
+
+    /**
+     * Updates the breed list from shared preferences if it is changed by the service.
+     *
+     *  Reference must be given a variable name due to weak reference defect in Android
+     */
     val mPrefsListener = SharedPreferences.OnSharedPreferenceChangeListener { prefs: SharedPreferences, key: String ->
         // Note: Service only uses a single "apply()" so the updating of the breed information is atomic,
         // but better to use a content provider and listen to the URI in a real project
@@ -59,6 +68,9 @@ class BreedActivity : ExpandableListActivity() {
         }
     }
 
+    // --- Lifecycle Methods
+
+    // onCrete
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_breed)
@@ -166,6 +178,12 @@ class BreedActivity : ExpandableListActivity() {
 
     // --- Sub Breed Manipulation
 
+    /**
+     * Toggle the selection on the sub breed
+     *
+     * @breedPos the position of the breed
+     * @subBreedPos the position of the sub breed
+     */
     private fun toggleSelectedSubBreed(breedPos : Int, subBreedPos: Int) {
         val breed = mBreedArray[breedPos]
         val subBreed = mSubBreedArray[breedPos][subBreedPos]
@@ -198,8 +216,12 @@ class BreedActivity : ExpandableListActivity() {
     }
 
     /**
-     * Note: A selected breed that has no subbreeds appears as an empty subbreed hash
+     * Toggle the selected breed
+     *
+     * Note: A selected breed that has no sub breeds appears as an empty sub breed hash
      * in the selectionMap. An unselected breed has no key in selectionMap.
+     *
+     * @breedPos the position of the breed
      */
     private fun toggleSelectedBreed(breedPos : Int) {
         val breed = mBreedArray[breedPos]
@@ -238,6 +260,9 @@ class BreedActivity : ExpandableListActivity() {
 
    }
 
+    /**
+     *
+     */
     private fun storedDataToSelectionHash() {
         val breedList = mPrefs.getStringSet(Config.Keys.ALL_BREEDS_SELECTED, LinkedHashSet<String>())
         for (breed in breedList) {
@@ -264,16 +289,19 @@ class BreedActivity : ExpandableListActivity() {
             return null
         }
 
-        // --- Breed
+        // --- Breed Related Methods
 
+        // getGroupCount
         override fun getGroupCount(): Int {
             return mBreedArray.size
         }
 
+        // getGroupId
         override fun getGroupId(groupPosition: Int): Long {
             return 0
         }
 
+        // getGroupView
         override fun getGroupView(groupPosition: Int, isExpanded: Boolean,
                                   convertView: View?, parent: ViewGroup): View {
             var view = convertView
@@ -311,16 +339,19 @@ class BreedActivity : ExpandableListActivity() {
             return view
         }
 
-        // --- Sub Breed
+        // --- Sub Breed Related Methods
 
+        // getChild
         override fun getChild(groupPosition: Int, childPosition: Int): Any? {
             return null
         }
 
+        // getChildId
         override fun getChildId(groupPosition: Int, childPosition: Int): Long {
             return 0
         }
 
+        // getChildView
         override fun getChildView(groupPosition: Int, childPosition: Int,
                                   isLastChild: Boolean, convertView: View?, parent: ViewGroup): View {
             var view = convertView
@@ -361,16 +392,3 @@ class BreedActivity : ExpandableListActivity() {
         }
     }
 }
-
-/*
-        fun isSelected(breed : String, subBreed : String) : Boolean {
-            // Selection Info
-            var subBreedMap = selectionMap.get(breed)
-
-            var isSelected : Boolean? = false
-            if (subBreedMap != null)
-                isSelected = subBreedMap.get(subBreed)
-
-            return isSelected == true
-        }
- */
