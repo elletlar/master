@@ -46,6 +46,7 @@ class BreedActivity : ExpandableListActivity() {
     /** Keep track of items that are selected */
     private val selectionMap = HashMap<String, HashMap<String, Boolean>>()
 
+    /** The view used when there is no breed information available */
     lateinit var mNoData  : View
 
 
@@ -94,6 +95,8 @@ class BreedActivity : ExpandableListActivity() {
         if (mAdapter.groupCount == 0) {
             showNoDataView(true)
         }
+
+        // The cleverly named 'Fetch' button can be used to update the breeds when the list is empty
         val fetch = findViewById<Button>(R.id.btn_fetch)
         fetch.setOnClickListener({
             updateBreeds()
@@ -126,7 +129,7 @@ class BreedActivity : ExpandableListActivity() {
      * Show or hide no data view
      * true, show no data view
      */
-    fun showNoDataView(show : Boolean) {
+    private fun showNoDataView(show : Boolean) {
         if (show) {
             mExpandableList.visibility = View.GONE
             mNoData.visibility = View.VISIBLE
