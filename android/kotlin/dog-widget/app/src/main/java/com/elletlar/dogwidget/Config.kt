@@ -6,13 +6,20 @@ import org.json.JSONArray
 
 class Config {
 
+    /**
+     * Actions to send to the widget
+     */
     class Widget {
         @SuppressWarnings("SpellCheckingInspection")
         companion object {
+            /** Ask the widget to update because there are new images available*/
             const val ACTION_NEW_IMAGE_READY = "com.elletlar.dogwidget.UPDATE_IMAGE"
         }
     }
 
+    /**
+     * URL configuration info
+     */
     class Urls {
         companion object {
             @JvmStatic
@@ -20,8 +27,13 @@ class Config {
                 return Urls.DEFAULT_IMAGES
             }
 
+            /** We show a maximum of 12 unique images at any one time. It is unlikely the user will ever had 12 or more instances of the widget open */
             const val MAX_DEFAULT_IMAGES = 12
 
+            /**
+             * The default URLs to use: These are used when the app is first installed in the case where we cannot
+             * get a list of URLs from the server for whatever reason. [Example: The JSON endpoint is offline or not working]
+             */
             @JvmStatic
             private val DEFAULT_IMAGES = arrayOf(
                     "https://images.dog.ceo/breeds/mix/Polo.jpg",
@@ -39,6 +51,9 @@ class Config {
         }
     }
 
+    /**
+     * Shared Preferences Keys
+     */
     class Keys {
         /**
          * Simple scheme:
@@ -58,21 +73,33 @@ class Config {
             /** Boolean: true app has been seutp */
             const val SETUP = "setup"
 
+
             // --- Breed Info
-            // Key to get all breeds
+
+            /** All available breeds */
             const val ALL_BREEDS = "all_breeds"
+            /** All available sub breeds */
             const val ALL_BREEDS_SELECTED = "all_breeds-selected"
 
+            /** Prefix used by to access all breeds */
             private const val PREFIX_ALL = "all"
+            /** Prefix used by to access all selected breeds */
             private const val PREFIX_SELECTED = "selected"
 
+            /** The time in milliseconds the breed list was last udpated from the server */
             const val BREED_UPDATE_TIME = "breed_update_time"
 
+
             // --- Options
+
+            /** Rounds the widget */
             const val ROUNDED = "rounded"
+            /** Default value for rounded */
             const val DEFAULT_ROUNDED =  true
 
+            /** Determines how much can be seen underneath the widget */
             const val ALPHA = "alpha"
+            /** */
             const val DEFAULT_ALPHA = 128 // 0 [Transparent] to 255 [Opaque]
 
 

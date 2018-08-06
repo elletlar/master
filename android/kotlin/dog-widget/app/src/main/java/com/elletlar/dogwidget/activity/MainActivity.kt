@@ -38,6 +38,7 @@ class MainActivity : Activity() {
 
         mPrefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
 
+        // Breed selection
         val breedBtn = findViewById<TextView>(R.id.btn_breeds)
         breedBtn.setOnClickListener {
             val intent = Intent(this@MainActivity, BreedActivity::class.java)
@@ -67,17 +68,18 @@ class MainActivity : Activity() {
         super.onStart()
     }
 
+
     // --- Helper Methods
 
     /**
-     * Example of setting a user property on firebase
+     * Example of setting a user property on Firebase
      */
     private fun setUserProperty(property : String, value : String) {
         mFirebaseAnalytics.setUserProperty(property, value)
     }
 
     /**
-     * Sample of logging to the Firecase console
+     * Sample of logging to the Firebase console
      */
     private fun logEvent(value : String) {
         val b = Bundle()
@@ -85,9 +87,8 @@ class MainActivity : Activity() {
         mFirebaseAnalytics.logEvent("app_method", b)
     }
 
-
     /**
-     * Opens dialog that enables user to set the transparency effect on the widget
+     * Opens dialog that enables user to set the transparency effect on the widgets
      */
     @SuppressLint("SetTextI18n") // Sample project, no need for internationalisation
     private fun openAlphaDialog(alpha : Int) {
@@ -115,7 +116,6 @@ class MainActivity : Activity() {
             alphaTv.text = numInt.toString() + "%"
         }
         builder.setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
-
         builder.setMessage("Amount of transparency 1 to 100")
 
         builder.show()

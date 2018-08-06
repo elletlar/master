@@ -32,7 +32,6 @@ class DogService : IntentService("DogService") {
         /** 24 Hours in milliseconds */
         private const val HOURS24 = 86400000
 
-
         // --- Actions
         /** Update the breeds and sub breeds from the server */
         const val ACTION_UPDATE_BREEDS = "com.elletlar.dog.update_breeds"
@@ -43,7 +42,7 @@ class DogService : IntentService("DogService") {
         /** URLs */
         const val URL_BREEDS_LIST_ALL = "https://dog.ceo/api/breeds/list/all"
 
-        // --- JSON parsing
+        // --- JSON parsing [TODO: Could have used Retrofit]
         /** JSON names */
         const val JSON_MESSAGE = "message"
     }
@@ -126,7 +125,7 @@ class DogService : IntentService("DogService") {
                 Log.d("", "Cannot update breeds: " + err.response)
                 println("Cannot update breeds: " + err.response)
 
-                // TD: Send failure flag back to widget
+                // TODO: Send failure flag back to widget
                 handleUpdateImage()
             })
         }
@@ -194,6 +193,9 @@ class DogService : IntentService("DogService") {
         return imageUrl
     }
 
+    /**
+     * Updates the dog image URL from the server
+     */
     private fun updateImageUrl(imageRequestUrl : String) {
         Fuel.get(imageRequestUrl).responseString { _, _, result ->
             result.fold({ d ->
@@ -240,6 +242,7 @@ class DogService : IntentService("DogService") {
 
     private fun ClosedRange<Int>.random() =
             ThreadLocalRandom.current().nextInt(endInclusive - start) + start
+
 
     // --- Helpers
 
