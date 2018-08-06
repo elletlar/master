@@ -38,16 +38,16 @@ class BreedActivity : ExpandableListActivity() {
 
     // --- Arrays for adapters
     /** strings for group elements */
-    lateinit var mBreedArray : Array<String>
+    private lateinit var mBreedArray : Array<String>
     /** strings for child elements */
-    lateinit var mSubBreedArray : Array<Array<String>>
+    private lateinit var mSubBreedArray : Array<Array<String>>
 
     // --- Selection Map
     /** Keep track of items that are selected */
     private val selectionMap = HashMap<String, HashMap<String, Boolean>>()
 
     /** The view used when there is no breed information available */
-    lateinit var mNoData  : View
+    private lateinit var mNoData  : View
 
     /**
      * Updates the breed list from shared preferences if it is changed by the service.
